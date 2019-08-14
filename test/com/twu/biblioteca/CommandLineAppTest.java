@@ -36,22 +36,31 @@ public class CommandLineAppTest {
     @Test
     public void startListNoBooksTest() throws AWTException {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
-                "There are currently no books in the library. Please try later.\n"
+                "You selected option [b].\n" +
+                "There are currently no books in the library. Please try later.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -59,60 +68,57 @@ public class CommandLineAppTest {
     @Test
     public void startWrongOptionChosen1Test() throws AWTException {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("99\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("99\n1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
                 "You typed \"99\". This is not a valid menu option. Please try again.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
-                "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
-                "There are currently no books in the library. Please try later.\n"
-                ;
+                "You selected option [x].\n" +
+                "Good Buy!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
     @Test
     public void startWrongOptionChosen2Test() throws AWTException {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("abc\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("ab\n1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
-                "You typed \"ab\". This is not a valid menu option. Please try again.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
-                "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
-                "There are currently no books in the library. Please try later.\n"
-                ;
+                "You typed \"abc\". This is not a valid menu option. Please try again.\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
     @Test
-    public void listOneBook1Test(){
+    public void listOneBook1Test() {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
@@ -121,27 +127,35 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAnnaKarenina);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
+                "You selected option [b].\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
-                "[1] | Anna Karenina | Leo Tolstoy | 1877\n"
-                ;
+                "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
     @Test
-    public void listOneBook2Test(){
+    public void listOneBook2Test() {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
@@ -150,25 +164,35 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAnnaKarenina);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
+                "You selected option [b].\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
-                "[1] | Walden | Henry David Thoreau | 1854\n";
+                "[1] | Walden | Henry David Thoreau | 1854\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
+
     @Test
-    public void viewListOfBooksTest(){
+    public void listOneBooks1Test() {
 //         Arrange
+        System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
@@ -181,23 +205,54 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
-                "Here are your options:\n" +
-                "[1] View the list of all books.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
                 "Please type the number of your option then hit Enter:\n" +
-                "You selected option [1] to view the list of all Books.\n" +
+                "You selected option [b].\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
                 "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                 "[2] | Walden | Henry David Thoreau | 1854\n" +
-                "[3] | Agile Software Development | Robert Cecil Martin | 2003\n";
+                "[3] | Agile Software Development | Robert Cecil Martin | 2003\n"+
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
+    }
 
+    @Test
+    public void startQuit1Test() {
+//         Arrange
+        System.setIn(new ByteArrayInputStream("x\n".getBytes()));
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+
+//         Act
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu.\n" +
+                "Biblioteca Navigation:\n" +
+                "[m] Main Menu\n" +
+                "[b] All books\n" +
+                "[x] Quit Biblioteca\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Buy!\n";
+        Assert.assertThat(actualOutput, is(expectedOutput));
     }
 }
