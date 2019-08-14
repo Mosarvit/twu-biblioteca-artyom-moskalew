@@ -1,49 +1,47 @@
 package com.twu.biblioteca;
 
-import java.awt.print.Book;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.util.ArrayList;
+import javax.swing.*;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class CommandLineApp {
-    private final IOHandler iOHandler;
+    private final IOHandler ioHandler;
 
-    public CommandLineApp(IOHandler iOHandler) {
-        this.iOHandler = iOHandler;
+    public CommandLineApp(IOHandler ioHandler) {
+        this.ioHandler = ioHandler;
     }
 
     public void start() {
-        this.iOHandler.printOutput("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
-        this.iOHandler.printOutput("This is the Main Menu. Here are your options:");
-        this.iOHandler.printOutput("[1] View the list of all books.");
-        this.iOHandler.printOutput("Please type the number of your option then hit Enter:");
+        this.ioHandler.printOutput("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+        this.ioHandler.printOutput("This is the Main Menu.");
 
-        Scanner myObj = new Scanner(System.in);
-        String userSelectedOptionString = myObj.nextLine();
-        
-        int userSelectedOption = Integer.parseInt(userSelectedOptionString);
+        Scanner scanner = new Scanner(System.in);
 
-        if (userSelectedOption == 1) {
-            this.iOHandler.printOutput("You selected option [1] to view the list of all Books.");
-            if (Bookshelf.isEmpty()) {
-                this.iOHandler.printOutput("There are currently no books in the library. Please try later!");
+        boolean exitMenuLoop = false;
+
+        ViewAllBooksView viewAllBooksView = new ViewAllBooksView(this.ioHandler);
+
+        HashMap<String, MenuOption> menuOptionsHM = new HashMap<String, MenuOption>();
+        menuOptionsHM.put("1", viewAllBooksView);
+
+
+        while (!exitMenuLoop) {
+
+            this.ioHandler.printOutput("Here are your options:");
+            this.ioHandler.printOutput("[1] View the list of all books.");
+            this.ioHandler.printOutput("Please type the number of your option then hit Enter:");
+
+            String userSelectedOptionString = scanner.nextLine();
+
+            if (menuOptionsHM.containsKey(userSelectedOptionString)){
+                MenuOption menuOption = menuOptionsHM.get(userSelectedOptionString);
+                menuOption.enter();
+                exitMenuLoop = true;
             } else {
-                this.iOHandler.printOutput("Here are the books in our library:");
-                viewListOfBooks();
+                this.ioHandler.printOutput("You typed \""+userSelectedOptionString+"\". This is not a valid menu option. Please try again.");
             }
         }
-
     }
 
-    private void viewListOfBooks() {
-        this.iOHandler.printOutput("[INDEX] | Title | Author | Year Published");
-        ArrayList<BibliotecaBook> allBooks = Bookshelf.getAllBooks();
-        int indexCounter = 1;
-        for (BibliotecaBook bibliotecaBook : allBooks) {
-            this.iOHandler.printOutput("[" + indexCounter + "]" + " | " + bibliotecaBook.getTitle() + " | " + bibliotecaBook.getAuthor() +
-                    " | " + bibliotecaBook.getYearPublished());
-            indexCounter++;
-        }
-    }
+
 }

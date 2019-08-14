@@ -34,7 +34,7 @@ public class CommandLineAppTest {
     }
 
     @Test
-    public void startTest() throws AWTException {
+    public void startListNoBooksTest() throws AWTException {
 //         Arrange
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
@@ -46,15 +46,69 @@ public class CommandLineAppTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu. Here are your options:\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
                 "[1] View the list of all books.\n" +
                 "Please type the number of your option then hit Enter:\n" +
                 "You selected option [1] to view the list of all Books.\n" +
-                "There are currently no books in the library. Please try later!\n"
+                "There are currently no books in the library. Please try later.\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
+    @Test
+    public void startWrongOptionChosen1Test() throws AWTException {
+//         Arrange
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+
+//         Act
+        System.setIn(new ByteArrayInputStream("99\n1\n".getBytes()));
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You typed \"99\". This is not a valid menu option. Please try again.\n" +
+                "Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
+                "There are currently no books in the library. Please try later.\n"
+                ;
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void startWrongOptionChosen2Test() throws AWTException {
+//         Arrange
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+
+//         Act
+        System.setIn(new ByteArrayInputStream("ab\n1\n".getBytes()));
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You typed \"ab\". This is not a valid menu option. Please try again.\n" +
+                "Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
+                "There are currently no books in the library. Please try later.\n"
+                ;
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
 
     @Test
     public void listOneBook1Test(){
@@ -73,7 +127,8 @@ public class CommandLineAppTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu. Here are your options:\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
                 "[1] View the list of all books.\n" +
                 "Please type the number of your option then hit Enter:\n" +
                 "You selected option [1] to view the list of all Books.\n" +
@@ -101,7 +156,8 @@ public class CommandLineAppTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu. Here are your options:\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
                 "[1] View the list of all books.\n" +
                 "Please type the number of your option then hit Enter:\n" +
                 "You selected option [1] to view the list of all Books.\n" +
@@ -131,7 +187,8 @@ public class CommandLineAppTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu. Here are your options:\n" +
+                "This is the Main Menu.\n" +
+                "Here are your options:\n" +
                 "[1] View the list of all books.\n" +
                 "Please type the number of your option then hit Enter:\n" +
                 "You selected option [1] to view the list of all Books.\n" +
