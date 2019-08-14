@@ -6,7 +6,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
@@ -15,6 +19,7 @@ public class CommandLineAppTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
+    private final InputStream originalIn = System.in;
 
     @Before
     public void setUpStreams() {
@@ -24,22 +29,29 @@ public class CommandLineAppTest {
     @After
     public void restoreStreams() {
         System.setOut(originalOut);
+        System.setIn(originalIn);
         Bookshelf.clear();
     }
 
     @Test
-    public void startTest() {
+    public void startTest() throws AWTException {
 //         Arrange
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
 //         Act
+        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "There are currently no books in the library. Please try later!\n";
+                "This is the Main Menu. Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
+                "There are currently no books in the library. Please try later!\n"
+                ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -55,14 +67,20 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAnnaKarenina);
 
 //         Act
+        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu. Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
-                "[1] | Anna Karenina | Leo Tolstoy | 1877\n";
+                "[1] | Anna Karenina | Leo Tolstoy | 1877\n"
+                ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -77,11 +95,16 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAnnaKarenina);
 
 //         Act
+        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu. Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
                 "[1] | Walden | Henry David Thoreau | 1854\n";
@@ -102,11 +125,16 @@ public class CommandLineAppTest {
         Bookshelf.add(bookAgileSoftwareDevelopment);
 
 //         Act
+        System.setIn(new ByteArrayInputStream("1\n".getBytes()));
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu. Here are your options:\n" +
+                "[1] View the list of all books.\n" +
+                "Please type the number of your option then hit Enter:\n" +
+                "You selected option [1] to view the list of all Books.\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
                 "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
