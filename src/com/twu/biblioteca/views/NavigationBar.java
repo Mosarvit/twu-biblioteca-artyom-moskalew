@@ -2,28 +2,29 @@ package com.twu.biblioteca.views;
 
 import com.twu.biblioteca.IOHandler;
 
-import java.util.HashMap;
-import java.util.concurrent.LinkedBlockingDeque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class NavigationBar {
 
     private static final NavigationBar navigationBar_Singleton = new NavigationBar();
-    private HashMap<String, View> menuOptionsHM = new HashMap<String, View>();
+    private LinkedHashMap<String, View> menuOptionsHM = new LinkedHashMap<String, View>();
 
     private NavigationBar() {
-        ViewAllBooksView viewAllBooksView = ViewAllBooksView.getInstance();
+        BrowseAllBooksView browseAllBooksView = BrowseAllBooksView.getInstance();
         QuitBibliotecaView quitBiblioteca = QuitBibliotecaView.getInstance();
         MainMenuView mainMenuView = MainMenuView.getInstance();
 
-        this.menuOptionsHM.put("b", viewAllBooksView);
         this.menuOptionsHM.put("m", mainMenuView);
+        this.menuOptionsHM.put("b", browseAllBooksView);
         this.menuOptionsHM.put("x", quitBiblioteca);
     }
     public void printNavigationBar(IOHandler ioHandler) {
-        ioHandler.printOutput("Biblioteca Navigation:");
-        ioHandler.printOutput("[m] Main Menu");
-        ioHandler.printOutput("[b] All books");
-        ioHandler.printOutput("[x] Quit Biblioteca");
+        ioHandler.printOutput("Navigation Bar:");
+        for (Map.Entry<String, View> entry : this.menuOptionsHM.entrySet()) {
+            ioHandler.printOutput("["+ entry.getKey() +"] "+ entry.getValue().getViewName());
+        }
+        ioHandler.printOutput("");
     }
 
     public boolean hasOption(String optionString) {

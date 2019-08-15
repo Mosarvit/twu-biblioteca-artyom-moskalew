@@ -4,6 +4,7 @@ public class BibliotecaBook {
     private final int yearPublished;
     private final String author;
     private final String title;
+    private boolean checkedOut = false;
 
     public BibliotecaBook(String title, String author, int yearPublished) {
         this.title = title;
@@ -21,5 +22,13 @@ public class BibliotecaBook {
 
     public int getYearPublished() {
         return this.yearPublished;
+    }
+
+    public boolean isCheckedOut() {
+        return this.checkedOut;
+    }
+
+    public void checkOut() {
+        this.checkedOut = true;
     }
 }

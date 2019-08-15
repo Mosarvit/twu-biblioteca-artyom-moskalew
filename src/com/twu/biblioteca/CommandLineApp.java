@@ -2,11 +2,6 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.views.MainMenuView;
 import com.twu.biblioteca.views.View;
-import com.twu.biblioteca.views.QuitBibliotecaView;
-import com.twu.biblioteca.views.ViewAllBooksView;
-
-import java.util.HashMap;
-import java.util.Scanner;
 
 public class CommandLineApp {
     private final IOHandler ioHandler;
@@ -20,12 +15,8 @@ public class CommandLineApp {
 
         View currentView = MainMenuView.getInstance();
 
-        while(currentView!=null){
+        while (currentView != null) {
             currentView = currentView.enter(this.ioHandler);
         }
-
-
     }
-
-
 }

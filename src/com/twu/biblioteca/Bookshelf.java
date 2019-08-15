@@ -20,4 +20,14 @@ public class Bookshelf {
     public static void clear() {
         bibliotecaBooks.clear();
     }
+
+    public static ArrayList<BibliotecaBook> selectAllBooksWhereCheckedOutIsFalse() {
+        ArrayList<BibliotecaBook> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        for(BibliotecaBook book : bibliotecaBooks){
+            if (!book.isCheckedOut()){
+                allBooksWhereCheckedOutIsFalse.add(book);
+            }
+        }
+        return allBooksWhereCheckedOutIsFalse;
+    }
 }

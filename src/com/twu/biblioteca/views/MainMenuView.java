@@ -6,6 +6,7 @@ public class MainMenuView extends View{
     private static final MainMenuView mainMenuView_singleton = new MainMenuView();
 
     private MainMenuView() {
+        this.viewName = "Main Menu";
     }
 
     public static MainMenuView getInstance() {

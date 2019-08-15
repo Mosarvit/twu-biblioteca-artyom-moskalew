@@ -6,6 +6,7 @@ public class QuitBibliotecaView extends View {
     private static final QuitBibliotecaView quitBibliotecaView_singleton = new QuitBibliotecaView();
 
     private QuitBibliotecaView() {
+        this.viewName = "Quit Biblioteca";
     }
 
     public static QuitBibliotecaView getInstance() {
