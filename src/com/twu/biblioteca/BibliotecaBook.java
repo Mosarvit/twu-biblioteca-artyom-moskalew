@@ -31,4 +31,8 @@ public class BibliotecaBook {
     public void checkOut() {
         this.checkedOut = true;
     }
+
+    public void returnBook() {
+        this.checkedOut = false;
+    }
 }

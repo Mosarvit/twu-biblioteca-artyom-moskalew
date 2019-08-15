@@ -30,4 +30,14 @@ public class Bookshelf {
         }
         return allBooksWhereCheckedOutIsFalse;
     }
+
+    public static ArrayList<BibliotecaBook> selectAllBooksWhereCheckedOutIsTrue() {
+        ArrayList<BibliotecaBook> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        for(BibliotecaBook book : bibliotecaBooks){
+            if (book.isCheckedOut()){
+                allBooksWhereCheckedOutIsFalse.add(book);
+            }
+        }
+        return allBooksWhereCheckedOutIsFalse;
+    }
 }
