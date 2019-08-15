@@ -90,33 +90,6 @@ public class CommandLineAppTest {
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
-    @Ignore("covered by startWrongOptionChosen2Test")
-    @Test
-    public void startWrongOptionChosen1Test() throws AWTException {
-//         Arrange
-        System.setIn(new ByteArrayInputStream("99\nx\n".getBytes()));
-        IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
-
-//         Act
-        commandLineApp.start();
-
-//        Assert
-        String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
-                "Biblioteca Navigation:\n" +
-                "[m] Main Menu\n" +
-                "[b] Browse all books\n" +
-                "[x] Quit Biblioteca\n" +
-                "\n" +
-                "Please type the number of your option then hit Enter:\n" +
-                "You typed \"99\". This is not a valid menu option. Please try again.\n" +
-                "You selected option [x].\n" +
-                "Good Buy!\n";
-        Assert.assertThat(actualOutput, is(expectedOutput));
-    }
-
     @Test
     public void startWrongOptionChosen2Test() throws AWTException {
 //         Arrange

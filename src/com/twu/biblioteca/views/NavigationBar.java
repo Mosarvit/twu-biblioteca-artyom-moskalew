@@ -11,12 +11,12 @@ public class NavigationBar {
     private LinkedHashMap<String, View> menuOptionsHM = new LinkedHashMap<String, View>();
 
     private NavigationBar() {
-        BrowseAllBooksView browseAllBooksView = BrowseAllBooksView.getInstance();
+        BrowseView browseView = BrowseView.getInstance();
         QuitBibliotecaView quitBiblioteca = QuitBibliotecaView.getInstance();
         MainMenuView mainMenuView = MainMenuView.getInstance();
 
         this.menuOptionsHM.put("m", mainMenuView);
-        this.menuOptionsHM.put("b", browseAllBooksView);
+        this.menuOptionsHM.put("b", browseView);
         this.menuOptionsHM.put("x", quitBiblioteca);
     }
     public void printNavigationBar(IOHandler ioHandler) {

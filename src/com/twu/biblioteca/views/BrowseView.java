@@ -7,15 +7,15 @@ import com.twu.biblioteca.TablePrinter;
 
 import java.util.ArrayList;
 
-public class BrowseAllBooksView extends View {
-    private static BrowseAllBooksView browseAllBooksView_singleton = new BrowseAllBooksView();
+public class BrowseView extends View {
+    private static BrowseView browseView_singleton = new BrowseView();
 
-    private BrowseAllBooksView() {
+    private BrowseView() {
         this.viewName = "Browse all books";
     }
 
-    public static BrowseAllBooksView getInstance() {
-        return browseAllBooksView_singleton;
+    public static BrowseView getInstance() {
+        return browseView_singleton;
     }
 
     public View enter(IOHandler ioHandler) {
@@ -38,22 +38,29 @@ public class BrowseAllBooksView extends View {
 
             String userSelectedOptionString = ioHandler.getNextInputLine();
 
+            ioHandler.printOutput("You selected option [" + userSelectedOptionString + "].");
+
             if (navigationBar.hasOption(userSelectedOptionString)) {
-                ioHandler.printOutput("You selected option [" + userSelectedOptionString + "].");
                 View view = navigationBar.getView(userSelectedOptionString);
                 return view;
-            } else {
+            } else if (isNumeric(userSelectedOptionString)) {
                 int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
                 if (userSelectedNumber <= checkOutableBooks.size()) {
-                    ioHandler.printOutput("You selected option [" + userSelectedOptionString + "].");
                     BibliotecaBook bookSelectedForCheckOut = checkOutableBooks.get(userSelectedNumber - 1);
                     bookSelectedForCheckOut.checkOut();
                     ioHandler.printOutput("\"" + bookSelectedForCheckOut.getTitle() + "\" is checked out.");
-                    ioHandler.printOutput("");
+                    ioHandler.printOutput("Thank you! Enjoy the book.");
                 } else {
-                    ioHandler.printOutput("You typed \"" + userSelectedOptionString + "\". This is not a valid menu option. Please try again.");
+                    ioHandler.printOutput("Sorry, that book is not available. Please try again.");
                 }
+                ioHandler.printOutput("");
+            } else {
+                ioHandler.printOutput("This is not a valid menu option. Please try again.");
             }
         }
+    }
+
+    private static boolean isNumeric(String str) {
+        return str.matches("\\d+");
     }
 }
