@@ -11,12 +11,12 @@ public class CommandLineApp {
     }
 
     public void start() {
-        this.ioHandler.printOutput("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+        this.ioHandler.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
 
-        View currentView = MainMenuView.getInstance();
+        View currentTableActionView = MainMenuView.getInstance();
 
-        while (currentView != null) {
-            currentView = currentView.enter(this.ioHandler);
+        while (currentTableActionView != null) {
+            currentTableActionView = currentTableActionView.enter(this.ioHandler);
         }
     }
 }

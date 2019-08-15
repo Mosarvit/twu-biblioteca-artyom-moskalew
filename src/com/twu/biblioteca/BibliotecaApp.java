@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import com.twu.biblioteca.models.BookEntry;
+import com.twu.biblioteca.models.BookEntries;
 
 public class BibliotecaApp {
 
@@ -9,13 +9,13 @@ public class BibliotecaApp {
         IOHandler ioHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(ioHandler);
 
-        BibliotecaBook bookAnnaKarenina = new BibliotecaBook("Anna Karenina", "Leo Tolstoy", 1877);
-        BibliotecaBook bookWalden = new BibliotecaBook("Walden", "Henry David Thoreau", 1854);
-        BibliotecaBook bookAgileSoftwareDevelopment = new BibliotecaBook("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
+        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
+        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        Bookshelf.add(bookAnnaKarenina);
-        Bookshelf.add(bookWalden);
-        Bookshelf.add(bookAgileSoftwareDevelopment);
+        BookEntries.add(bookAnnaKarenina);
+        BookEntries.add(bookWalden);
+        BookEntries.add(bookAgileSoftwareDevelopment);
 
         commandLineApp.start();
     }

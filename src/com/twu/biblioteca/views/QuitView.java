@@ -1,0 +1,20 @@
+package com.twu.biblioteca.views;
+
+import com.twu.biblioteca.IOHandler;
+
+public class QuitView extends View {
+    private static final QuitView QUIT_VIEW___SINGLETON = new QuitView();
+
+    private QuitView() {
+        this.viewName = "Quit Biblioteca";
+    }
+
+    public static QuitView getInstance() {
+        return QUIT_VIEW___SINGLETON;
+    }
+
+    public TableInteractionView enter(IOHandler ioHandler) {
+        ioHandler.println("Good Buy!");
+        return null;
+    }
+}

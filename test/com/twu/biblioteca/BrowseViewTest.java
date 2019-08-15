@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.models.BookEntry;
+import com.twu.biblioteca.models.BookEntries;
 import com.twu.biblioteca.views.BrowseView;
 import org.junit.*;
 
@@ -27,7 +29,7 @@ public class BrowseViewTest {
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
-        Bookshelf.clear();
+        BookEntries.clear();
     }
 
     @Test
@@ -37,13 +39,13 @@ public class BrowseViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseView browseView = BrowseView.getInstance();
 
-        BibliotecaBook bookAnnaKarenina = new BibliotecaBook("Anna Karenina", "Leo Tolstoy", 1877);
-        BibliotecaBook bookWalden = new BibliotecaBook("Walden", "Henry David Thoreau", 1854);
-        BibliotecaBook bookAgileSoftwareDevelopment = new BibliotecaBook("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
+        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
+        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        Bookshelf.add(bookAnnaKarenina);
-        Bookshelf.add(bookWalden);
-        Bookshelf.add(bookAgileSoftwareDevelopment);
+        BookEntries.add(bookAnnaKarenina);
+        BookEntries.add(bookWalden);
+        BookEntries.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseView.enter(iOHandler);
@@ -57,10 +59,7 @@ public class BrowseViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:\n" +
-                        "[m] Main Menu\n" +
-                        "[b] Browse all books\n" +
-                        "[x] Quit Biblioteca\n" +
+                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [x].\n";
@@ -74,13 +73,13 @@ public class BrowseViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseView browseView = BrowseView.getInstance();
 
-        BibliotecaBook bookAnnaKarenina = new BibliotecaBook("Anna Karenina", "Leo Tolstoy", 1877);
-        BibliotecaBook bookWalden = new BibliotecaBook("Walden", "Henry David Thoreau", 1854);
-        BibliotecaBook bookAgileSoftwareDevelopment = new BibliotecaBook("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
+        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
+        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        Bookshelf.add(bookAnnaKarenina);
-        Bookshelf.add(bookWalden);
-        Bookshelf.add(bookAgileSoftwareDevelopment);
+        BookEntries.add(bookAnnaKarenina);
+        BookEntries.add(bookWalden);
+        BookEntries.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseView.enter(iOHandler);
@@ -94,10 +93,7 @@ public class BrowseViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:\n" +
-                        "[m] Main Menu\n" +
-                        "[b] Browse all books\n" +
-                        "[x] Quit Biblioteca\n" +
+                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [1].\n" +
@@ -109,10 +105,7 @@ public class BrowseViewTest {
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:\n" +
-                        "[m] Main Menu\n" +
-                        "[b] Browse all books\n" +
-                        "[x] Quit Biblioteca\n" +
+                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [x].\n"
@@ -127,13 +120,13 @@ public class BrowseViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseView browseView = BrowseView.getInstance();
 
-        BibliotecaBook bookAnnaKarenina = new BibliotecaBook("Anna Karenina", "Leo Tolstoy", 1877);
-        BibliotecaBook bookWalden = new BibliotecaBook("Walden", "Henry David Thoreau", 1854);
-        BibliotecaBook bookAgileSoftwareDevelopment = new BibliotecaBook("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
+        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
+        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        Bookshelf.add(bookAnnaKarenina);
-        Bookshelf.add(bookWalden);
-        Bookshelf.add(bookAgileSoftwareDevelopment);
+        BookEntries.add(bookAnnaKarenina);
+        BookEntries.add(bookWalden);
+        BookEntries.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseView.enter(iOHandler);
@@ -147,10 +140,7 @@ public class BrowseViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:\n" +
-                        "[m] Main Menu\n" +
-                        "[b] Browse all books\n" +
-                        "[x] Quit Biblioteca\n" +
+                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [4].\n" +
@@ -162,10 +152,7 @@ public class BrowseViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:\n" +
-                        "[m] Main Menu\n" +
-                        "[b] Browse all books\n" +
-                        "[x] Quit Biblioteca\n" +
+                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [x].\n"

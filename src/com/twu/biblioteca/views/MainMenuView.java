@@ -1,8 +1,9 @@
 package com.twu.biblioteca.views;
 
 import com.twu.biblioteca.IOHandler;
+import com.twu.biblioteca.views.parts.NavigationBar;
 
-public class MainMenuView extends View{
+public class MainMenuView extends View {
     private static final MainMenuView mainMenuView_singleton = new MainMenuView();
 
     private MainMenuView() {
@@ -14,20 +15,20 @@ public class MainMenuView extends View{
     }
 
     public View enter(IOHandler ioHandler) {
-        ioHandler.printOutput("This is the Main Menu.");
+        ioHandler.println("This is the Main Menu.");
         NavigationBar navigationBar = NavigationBar.getInstance();
         navigationBar.printNavigationBar(ioHandler);
-        ioHandler.printOutput("Please type the number of your option then hit Enter:");
+        ioHandler.println("Please type an option from the Navigation Bar and then hit Enter:");
 
         while (true) {
             String userSelectedOptionString = ioHandler.getNextInputLine();
 
             if (navigationBar.hasOption(userSelectedOptionString)) {
-                ioHandler.printOutput("You selected option [" + userSelectedOptionString + "].");
-                View view = navigationBar.getView(userSelectedOptionString);
-                return view;
+                ioHandler.println("You selected option [" + userSelectedOptionString + "].");
+                View tableActionView = navigationBar.getView(userSelectedOptionString);
+                return tableActionView;
             } else {
-                ioHandler.printOutput("You typed \"" + userSelectedOptionString + "\". This is not a valid menu option. Please try again.");
+                ioHandler.println("You typed \"" + userSelectedOptionString + "\". This is not a valid menu option. Please try again.");
             }
         }
     }

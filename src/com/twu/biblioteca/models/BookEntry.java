@@ -1,12 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.models;
 
-public class BibliotecaBook {
+public class BookEntry {
     private final int yearPublished;
     private final String author;
     private final String title;
     private boolean checkedOut = false;
 
-    public BibliotecaBook(String title, String author, int yearPublished) {
+    public BookEntry(String title, String author, int yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;

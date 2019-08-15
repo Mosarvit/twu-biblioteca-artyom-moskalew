@@ -12,8 +12,11 @@ public class IOHandler {
 
         this.scanner = new Scanner(System.in);
     }
-    public void printOutput(String output) {
+    public void println(String output) {
         System.out.println(output);
+    }
+    public void print(String output) {
+        System.out.print(output);
     }
 
     public String getNextInputLine() {
