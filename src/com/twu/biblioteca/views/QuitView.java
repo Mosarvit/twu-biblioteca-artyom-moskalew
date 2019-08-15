@@ -14,7 +14,7 @@ public class QuitView extends View {
     }
 
     public TableInteractionView enter(IOHandler ioHandler) {
-        ioHandler.println("Good Buy!");
+        ioHandler.println("Good Bye!");
         return null;
     }
 }

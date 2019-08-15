@@ -49,7 +49,7 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You selected option [x].\n" +
-                "Good Buy!\n";
+                "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -77,7 +77,7 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [x].\n" +
-                "Good Buy!\n"
+                "Good Bye!\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -101,7 +101,7 @@ public class CommandLineAppTest {
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You typed \"abc\". This is not a valid menu option. Please try again.\n" +
                 "You selected option [x].\n" +
-                "Good Buy!\n";
+                "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -141,7 +141,7 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [x].\n" +
-                "Good Buy!\n";
+                "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 

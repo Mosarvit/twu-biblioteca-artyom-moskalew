@@ -22,6 +22,6 @@ public class ReturnView extends TableInteractionView {
     }
 
     public View enter(IOHandler ioHandler) {
-        return interactWithBookEntries(ioHandler, bookEntry -> bookEntry.returnBook(), () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue());
+        return interactWithTable(ioHandler, bookEntry -> bookEntry.returnBook(), () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue());
     }
 }

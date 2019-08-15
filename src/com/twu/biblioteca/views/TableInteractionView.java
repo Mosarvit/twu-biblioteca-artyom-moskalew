@@ -22,7 +22,7 @@ public abstract class TableInteractionView extends View {
 
     public abstract View enter(IOHandler ioHandler);
 
-    protected View interactWithBookEntries(IOHandler ioHandler, BookAction greetService1, BookSelection bookSelection) {
+    protected View interactWithTable(IOHandler ioHandler, BookAction greetService1, BookSelection bookSelection) {
 
         while (true) {
             ioHandler.println(this.viewTitle);
