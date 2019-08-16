@@ -6,6 +6,7 @@ import com.twu.biblioteca.IOHandler;
 public class ReturnView extends TableInteractionView {
     private static ReturnView returnView_singleton = new ReturnView();
 
+
     private ReturnView() {
 
         this.viewName = "Return books";
@@ -15,6 +16,8 @@ public class ReturnView extends TableInteractionView {
         this.onSuccessMessagePart = "has been returned";
         this.requestingInputMessage = "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:";
         this.thankYouMessage = "Thank you for returning the book!";
+        this.bookAction = bookEntry -> bookEntry.returnBook();
+
     }
 
     public static ReturnView getInstance() {
@@ -22,6 +25,6 @@ public class ReturnView extends TableInteractionView {
     }
 
     public View enter(IOHandler ioHandler) {
-        return interactWithTable(ioHandler, bookEntry -> bookEntry.returnBook(), () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue());
+        return interactWithTable(ioHandler, this.bookAction, () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue());
     }
 }

@@ -23,5 +23,7 @@ public class BrowseView extends TableInteractionView {
 
     public View enter(IOHandler ioHandler) {
         return interactWithTable(ioHandler, book -> book.checkOut(), () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse());
+
+
     }
 }

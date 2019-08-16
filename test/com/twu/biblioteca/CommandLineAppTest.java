@@ -54,7 +54,7 @@ public class CommandLineAppTest {
     }
 
     @Test
-    public void startListNoBooksTest() throws AWTException {
+    public void startListNoBooksTest() {
 //         Arrange
         System.setIn(new ByteArrayInputStream("l\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();

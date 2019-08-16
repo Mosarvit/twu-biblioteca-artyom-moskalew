@@ -16,13 +16,15 @@ public abstract class TableInteractionView extends View {
     protected String requestingInputMessage;
     protected String thankYouMessage;
 
+    protected  BookAction bookAction;
+
     public String getViewName(){
         return viewName;
     }
 
     public abstract View enter(IOHandler ioHandler);
 
-    protected View interactWithTable(IOHandler ioHandler, BookAction greetService1, BookSelection bookSelection) {
+    protected View interactWithTable(IOHandler ioHandler, BookAction bookAction, BookSelection bookSelection) {
 
         while (true) {
             ioHandler.println(this.viewTitle);
@@ -50,8 +52,8 @@ public abstract class TableInteractionView extends View {
                 int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
                 if (userSelectedNumber <= checkOutableBooks.size()) {
                     BookEntry bookSelectedForCheckOut = checkOutableBooks.get(userSelectedNumber - 1);
-                    greetService1.applyToBook(bookSelectedForCheckOut);
-                    ioHandler.println("\"" + bookSelectedForCheckOut.getTitle() + "\" " + this.onSuccessMessagePart + ".");
+                    String applyActionResponse = applyActionToBook(bookSelectedForCheckOut);
+                    ioHandler.println(applyActionResponse);
                     ioHandler.println(this.thankYouMessage);
                 } else {
                     ioHandler.println(this.wrongNumberSelectedMessage);
@@ -61,6 +63,11 @@ public abstract class TableInteractionView extends View {
                 ioHandler.println("This is not a valid menu option. Please try again.");
             }
         }
+    }
+
+    public String applyActionToBook(BookEntry bookSelectedForCheckOut) {
+        this.bookAction.applyToBook(bookSelectedForCheckOut);
+        return  "\"" + bookSelectedForCheckOut.getTitle() + "\" " + this.onSuccessMessagePart + ".";
     }
 
     private static boolean isNumeric(String str) {
