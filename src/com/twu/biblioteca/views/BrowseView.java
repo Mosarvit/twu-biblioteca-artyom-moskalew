@@ -1,5 +1,6 @@
 package com.twu.biblioteca.views;
 
+import com.twu.biblioteca.controllers.BrowseController;
 import com.twu.biblioteca.models.BookEntries;
 import com.twu.biblioteca.IOHandler;
 
@@ -12,9 +13,10 @@ public class BrowseView extends TableInteractionView {
         this.viewTitle = "Here are the books in our library:";
         this.emptyListMessage = "There are currently no books in the library. Please try later.";
         this.wrongNumberSelectedMessage = "Sorry, that book is not available. Please try again.";
-        this.onSuccessMessagePart = "is checked out";
+
         this.requestingInputMessage = "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:";
         this.thankYouMessage = "Thank you! Enjoy the book.";
+        this.controller = new BrowseController();
     }
 
     public static BrowseView getInstance() {
@@ -22,8 +24,6 @@ public class BrowseView extends TableInteractionView {
     }
 
     public View enter(IOHandler ioHandler) {
-        return interactWithTable(ioHandler, book -> book.checkOut(), () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse());
-
-
+        return interactWithTable(ioHandler, () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse());
     }
 }

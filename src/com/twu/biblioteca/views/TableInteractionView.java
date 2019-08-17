@@ -1,11 +1,14 @@
 package com.twu.biblioteca.views;
 
+import com.twu.biblioteca.controllers.TableInteractionController;
 import com.twu.biblioteca.models.BookEntry;
 import com.twu.biblioteca.IOHandler;
 import com.twu.biblioteca.views.helpers.TablePrinter;
 import com.twu.biblioteca.views.parts.NavigationBar;
 
 import java.util.ArrayList;
+
+import static com.twu.biblioteca.controllers.TableInteractionController.*;
 
 public abstract class TableInteractionView extends View {
     protected String viewName;
@@ -15,8 +18,8 @@ public abstract class TableInteractionView extends View {
     protected String onSuccessMessagePart;
     protected String requestingInputMessage;
     protected String thankYouMessage;
+    protected TableInteractionController controller;
 
-    protected  BookAction bookAction;
 
     public String getViewName(){
         return viewName;
@@ -24,7 +27,7 @@ public abstract class TableInteractionView extends View {
 
     public abstract View enter(IOHandler ioHandler);
 
-    protected View interactWithTable(IOHandler ioHandler, BookAction bookAction, BookSelection bookSelection) {
+    protected View interactWithTable(IOHandler ioHandler, BookSelection bookSelection) {
 
         while (true) {
             ioHandler.println(this.viewTitle);
@@ -52,7 +55,7 @@ public abstract class TableInteractionView extends View {
                 int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
                 if (userSelectedNumber <= checkOutableBooks.size()) {
                     BookEntry bookSelectedForCheckOut = checkOutableBooks.get(userSelectedNumber - 1);
-                    String applyActionResponse = applyActionToBook(bookSelectedForCheckOut);
+                    String applyActionResponse = controller.applyActionToBook(bookSelectedForCheckOut);
                     ioHandler.println(applyActionResponse);
                     ioHandler.println(this.thankYouMessage);
                 } else {
@@ -65,18 +68,13 @@ public abstract class TableInteractionView extends View {
         }
     }
 
-    public String applyActionToBook(BookEntry bookSelectedForCheckOut) {
-        this.bookAction.applyToBook(bookSelectedForCheckOut);
-        return  "\"" + bookSelectedForCheckOut.getTitle() + "\" " + this.onSuccessMessagePart + ".";
-    }
+
 
     private static boolean isNumeric(String str) {
         return str.matches("\\d+");
     }
 
-    interface BookAction {
-        void applyToBook(BookEntry book);
-    }
+
 
     interface BookSelection {
         ArrayList<BookEntry> selectBooks();
