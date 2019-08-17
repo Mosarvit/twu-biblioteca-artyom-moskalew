@@ -52,16 +52,10 @@ public abstract class TableInteractionView extends View {
                 View tableActionView = navigationBar.getView(userSelectedOptionString);
                 return tableActionView;
             } else if (isNumeric(userSelectedOptionString)) {
-                int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
-                if (userSelectedNumber <= checkOutableBooks.size()) {
-                    BookEntry bookSelectedForCheckOut = checkOutableBooks.get(userSelectedNumber - 1);
-                    String applyActionResponse = controller.applyActionToBook(bookSelectedForCheckOut);
-                    ioHandler.println(applyActionResponse);
-                    ioHandler.println(this.thankYouMessage);
-                } else {
-                    ioHandler.println(this.wrongNumberSelectedMessage);
-                }
-                ioHandler.println("");
+
+                ioHandler.println(controller.processNumericalInput(checkOutableBooks, userSelectedOptionString));
+
+
             } else {
                 ioHandler.println("This is not a valid menu option. Please try again.");
             }

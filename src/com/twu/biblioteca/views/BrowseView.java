@@ -12,10 +12,9 @@ public class BrowseView extends TableInteractionView {
         this.viewName = "List of books";
         this.viewTitle = "Here are the books in our library:";
         this.emptyListMessage = "There are currently no books in the library. Please try later.";
-        this.wrongNumberSelectedMessage = "Sorry, that book is not available. Please try again.";
+
 
         this.requestingInputMessage = "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:";
-        this.thankYouMessage = "Thank you! Enjoy the book.";
         this.controller = new BrowseController();
     }
 
