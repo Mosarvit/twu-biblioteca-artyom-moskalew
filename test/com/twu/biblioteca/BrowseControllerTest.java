@@ -20,7 +20,7 @@ public class BrowseControllerTest {
     @Test
     public void getTableStringTest() {
 //         Arrange
-        BrowseController browseController = new BrowseController();
+        BrowseController browseController = new BrowseController(BrowseView.getInstance());
 
         BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
         BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
@@ -31,7 +31,7 @@ public class BrowseControllerTest {
         BookEntries.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        String actualOutput = browseController.getTableString();
+        String actualOutput = browseController.getBody();
 
 //        Assert
         String expectedOutput =
@@ -39,6 +39,27 @@ public class BrowseControllerTest {
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n";
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void processUserInputTest() {
+//         Arrange
+        BrowseController browseController = new BrowseController(BrowseView.getInstance());
+
+        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
+        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
+        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+
+        BookEntries.add(bookAnnaKarenina);
+        BookEntries.add(bookWalden);
+        BookEntries.add(bookAgileSoftwareDevelopment);
+
+//         Act
+        String actualOutput = browseController.processUserInput("x");
+
+//        Assert
+        String expectedOutput = "";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 }

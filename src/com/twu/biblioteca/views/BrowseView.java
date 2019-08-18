@@ -1,8 +1,7 @@
 package com.twu.biblioteca.views;
 
-import com.twu.biblioteca.controllers.BrowseController;
-import com.twu.biblioteca.models.BookEntries;
 import com.twu.biblioteca.IOHandler;
+import com.twu.biblioteca.controllers.BrowseController;
 
 
 public class BrowseView extends TableInteractionView {
@@ -10,18 +9,10 @@ public class BrowseView extends TableInteractionView {
 
     private BrowseView() {
         this.viewName = "List of books";
-
-
-
-
-        this.controller = new BrowseController();
+        this.controller = new BrowseController(this);
     }
 
     public static BrowseView getInstance() {
         return browseView_singleton;
-    }
-
-    public View enter(IOHandler ioHandler) {
-        return interactWithTable(ioHandler);
     }
 }

@@ -21,7 +21,7 @@ public class ReturnControllerTest {
     public void applyActionToBookTest1() {
         // Arrange
         BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
-        ReturnController returnController = new ReturnController();
+        ReturnController returnController = new ReturnController(ReturnView.getInstance());
 
         // Act
         String response = returnController.applyActionToBook(bookAgileSoftwareDevelopment);
@@ -37,14 +37,14 @@ public class ReturnControllerTest {
         BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
         BookEntries.add(bookAgileSoftwareDevelopment);
         bookAgileSoftwareDevelopment.checkOut();
-        ReturnController returnController = new ReturnController();
+        ReturnController returnController = new ReturnController(ReturnView.getInstance());
 
         // Act
         String response = returnController.processNumericalInput("1");
 
         // Assert
         String expectedResponse = "\"Agile Software Development\" has been returned.\n" +
-                "Thank you for returning the book!\n"
+                "Thank you for returning the book!"
                 ;
         Assert.assertThat(response, is(expectedResponse));
     }

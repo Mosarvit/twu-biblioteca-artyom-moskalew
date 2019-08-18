@@ -1,8 +1,10 @@
 package com.twu.biblioteca;
 
 
+import com.twu.biblioteca.controllers.MainMenuController;
 import com.twu.biblioteca.models.BookEntry;
 import com.twu.biblioteca.models.BookEntries;
+import com.twu.biblioteca.views.MainMenuView;
 import org.junit.*;
 
 import java.awt.*;
@@ -45,10 +47,12 @@ public class CommandLineAppTest {
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
+                "\n" +
                 "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                 "\n" +
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You selected option [x].\n" +
+                "\n" +
                 "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -67,10 +71,12 @@ public class CommandLineAppTest {
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
+                "\n" +
                 "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                 "\n" +
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You selected option [l].\n" +
+                "\n" +
                 "Here are the books in our library:\n" +
                 "There are currently no books in the library. Please try later.\n" +
                 "\n" +
@@ -78,6 +84,7 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [x].\n" +
+                "\n" +
                 "Good Bye!\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
@@ -97,11 +104,20 @@ public class CommandLineAppTest {
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
+                "\n" +
                 "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                 "\n" +
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You typed \"abc\". This is not a valid menu option. Please try again.\n" +
+                "You selected option [abc].\n" +
+                "This is not a valid menu option. Please try again.\n" +
+                "This is the Main Menu.\n" +
+                "\n" +
+                "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                "\n" +
+                "Please type an option from the Navigation Bar and then hit Enter:" +
+                "\n" +
                 "You selected option [x].\n" +
+                "\n" +
                 "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -128,10 +144,12 @@ public class CommandLineAppTest {
         String actualOutput = outContent.toString();
         String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
                 "This is the Main Menu.\n" +
+                "\n" +
                 "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                 "\n" +
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You selected option [l].\n" +
+                "\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | Year Published\n" +
                 "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
@@ -142,9 +160,8 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [x].\n" +
+                "\n" +
                 "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
-
-
 }

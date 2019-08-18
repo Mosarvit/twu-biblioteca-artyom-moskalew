@@ -62,7 +62,7 @@ public class BrowseViewTest {
                         "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n";
+                        "You selected option [x].\n\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -98,17 +98,7 @@ public class BrowseViewTest {
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [1].\n" +
                         "\"Anna Karenina\" is checked out.\n" +
-                        "Thank you! Enjoy the book.\n" +
-                        "\n" +
-                        "Here are the books in our library:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
-                        "[1] | Walden | Henry David Thoreau | 1854\n" +
-                        "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
-                        "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
-                        "\n" +
-                        "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n"
+                        "Thank you! Enjoy the book.\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -144,18 +134,7 @@ public class BrowseViewTest {
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [4].\n" +
-                        "Sorry, that book is not available. Please try again.\n" +
-                        "\n" +
-                        "Here are the books in our library:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
-                        "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
-                        "[2] | Walden | Henry David Thoreau | 1854\n" +
-                        "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
-                        "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
-                        "\n" +
-                        "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n"
+                        "Sorry, that book is not available. Please try again.\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }

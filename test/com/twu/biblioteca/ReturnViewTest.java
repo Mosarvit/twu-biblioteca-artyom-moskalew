@@ -64,7 +64,7 @@ public class ReturnViewTest {
                         "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n";
+                        "You selected option [x].\n\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -102,16 +102,7 @@ public class ReturnViewTest {
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [2].\n" +
                         "\"Agile Software Development\" has been returned.\n" +
-                        "Thank you for returning the book!\n" +
-                        "\n" +
-                        "Here are books, that you can return:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
-                        "[1] | Walden | Henry David Thoreau | 1854\n" +
-                        "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
-                        "\n" +
-                        "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n"
+                        "Thank you for returning the book!\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -149,17 +140,7 @@ public class ReturnViewTest {
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [3].\n" +
-                        "That is not a valid book to return. Please try again.\n" +
-                        "\n" +
-                        "Here are books, that you can return:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
-                        "[1] | Walden | Henry David Thoreau | 1854\n" +
-                        "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
-                        "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
-                        "\n" +
-                        "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n"
+                        "That is not a valid book to return. Please try again.\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }

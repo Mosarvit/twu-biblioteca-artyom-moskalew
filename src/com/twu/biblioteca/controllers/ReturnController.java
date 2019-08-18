@@ -1,9 +1,11 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.BookEntries;
+import com.twu.biblioteca.views.ReturnView;
+import com.twu.biblioteca.views.View;
 
 public class ReturnController extends TableInteractionController {
-    public ReturnController(){
+    public ReturnController(View view){
         this.bookAction = book -> book.returnBook();
         this.bookSelection = () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue();
         this.viewTitle = "Here are books, that you can return:";
@@ -12,5 +14,8 @@ public class ReturnController extends TableInteractionController {
         this.thankYouMessage = "Thank you for returning the book!";
         this.requestInputMessage = "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:";
         this.emptyListMessage = "There are currently no books to return. You need to check out books first.";
+        this.correspondingView = view;
+        this.nextView = view
+        ;
     }
 }
