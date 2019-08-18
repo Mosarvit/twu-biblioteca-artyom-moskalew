@@ -73,6 +73,7 @@ public class CommandLineAppTest {
                 "You selected option [l].\n" +
                 "Here are the books in our library:\n" +
                 "There are currently no books in the library. Please try later.\n" +
+                "\n" +
                 "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +

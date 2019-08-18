@@ -13,10 +13,9 @@ import static com.twu.biblioteca.controllers.TableInteractionController.*;
 public abstract class TableInteractionView extends View {
     protected String viewName;
     protected String viewTitle;
-    protected String emptyListMessage;
+
     protected String wrongNumberSelectedMessage;
-    protected String onSuccessMessagePart;
-    protected String requestingInputMessage;
+
     protected String thankYouMessage;
     protected TableInteractionController controller;
 
@@ -27,35 +26,23 @@ public abstract class TableInteractionView extends View {
 
     public abstract View enter(IOHandler ioHandler);
 
-    protected View interactWithTable(IOHandler ioHandler, BookSelection bookSelection) {
+    protected View interactWithTable(IOHandler ioHandler) {
 
         while (true) {
-            ioHandler.println(this.viewTitle);
-
-            ArrayList<BookEntry> checkOutableBooks = bookSelection.selectBooks();
-            if (checkOutableBooks.isEmpty()) {
-                ioHandler.println(this.emptyListMessage);
-            } else {
-                TablePrinter.printListOfBooks(ioHandler, checkOutableBooks);
-            }
-
-            NavigationBar navigationBar = NavigationBar.getInstance();
-            navigationBar.printNavigationBar(ioHandler);
-
-            ioHandler.println(this.requestingInputMessage);
+            ioHandler.println(this.controller.getTitle());
+            ioHandler.println(this.controller.getTableString());
+            ioHandler.println(this.controller.getNavigationBarString());
+            ioHandler.println(this.controller.getRequestInputMessage());
 
             String userSelectedOptionString = ioHandler.getNextInputLine();
-
             ioHandler.println("You selected option [" + userSelectedOptionString + "].");
 
-            if (navigationBar.hasOption(userSelectedOptionString)) {
-                View tableActionView = navigationBar.getView(userSelectedOptionString);
-                return tableActionView;
-            } else if (isNumeric(userSelectedOptionString)) {
+            if (NavigationBar.getInstance().hasOption(userSelectedOptionString)) {
+                return NavigationBar.getInstance().getView(userSelectedOptionString);
+            }
 
-                ioHandler.println(controller.processNumericalInput(checkOutableBooks, userSelectedOptionString));
-
-
+            if (isNumeric(userSelectedOptionString)) {
+                ioHandler.println(controller.processNumericalInput(userSelectedOptionString));
             } else {
                 ioHandler.println("This is not a valid menu option. Please try again.");
             }
@@ -70,7 +57,4 @@ public abstract class TableInteractionView extends View {
 
 
 
-    interface BookSelection {
-        ArrayList<BookEntry> selectBooks();
-    }
 }

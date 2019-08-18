@@ -10,11 +10,10 @@ public class BrowseView extends TableInteractionView {
 
     private BrowseView() {
         this.viewName = "List of books";
-        this.viewTitle = "Here are the books in our library:";
-        this.emptyListMessage = "There are currently no books in the library. Please try later.";
 
 
-        this.requestingInputMessage = "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:";
+
+
         this.controller = new BrowseController();
     }
 
@@ -23,6 +22,6 @@ public class BrowseView extends TableInteractionView {
     }
 
     public View enter(IOHandler ioHandler) {
-        return interactWithTable(ioHandler, () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse());
+        return interactWithTable(ioHandler);
     }
 }

@@ -17,7 +17,7 @@ public class MainMenuView extends View {
     public View enter(IOHandler ioHandler) {
         ioHandler.println("This is the Main Menu.");
         NavigationBar navigationBar = NavigationBar.getInstance();
-        navigationBar.printNavigationBar(ioHandler);
+        ioHandler.println(navigationBar.toString());
         ioHandler.println("Please type an option from the Navigation Bar and then hit Enter:");
 
         while (true) {

@@ -6,15 +6,15 @@ import com.twu.biblioteca.models.BookEntry;
 import java.util.ArrayList;
 
 public class TablePrinter {
-
-    public static void printListOfBooks(IOHandler ioHandler, ArrayList<BookEntry> books) {
-        ioHandler.println("[INDEX] | Title | Author | Year Published");
+    public static String getTableAsString(ArrayList<BookEntry> books) {
+        String tableString = "";
+        tableString += "[INDEX] | Title | Author | Year Published\n";
         int indexCounter = 1;
         for (BookEntry book : books) {
-            ioHandler.println("[" + indexCounter + "]" + " | " + book.getTitle() + " | " + book.getAuthor() +
-                    " | " + book.getYearPublished());
+            tableString += "[" + indexCounter + "]" + " | " + book.getTitle() + " | " + book.getAuthor() +
+                    " | " + book.getYearPublished() + "\n";
             indexCounter++;
         }
-        ioHandler.println("");
+        return tableString;
     }
 }
