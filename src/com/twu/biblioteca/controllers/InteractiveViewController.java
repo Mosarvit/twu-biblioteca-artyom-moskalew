@@ -7,7 +7,7 @@ import com.twu.biblioteca.views.parts.NavigationBar;
 
 import java.util.ArrayList;
 
-public abstract class TableInteractionController implements Controller {
+public abstract class InteractiveViewController implements Controller {
     protected BookAction bookAction;
     protected String onSuccessMessagePart;
     protected String thankYouMessage;

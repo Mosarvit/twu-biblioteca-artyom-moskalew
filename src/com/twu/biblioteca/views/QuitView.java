@@ -13,7 +13,7 @@ public class QuitView extends View {
         return QUIT_VIEW___SINGLETON;
     }
 
-    public TableInteractionView enter(IOHandler ioHandler) {
+    public InteractiveView enter(IOHandler ioHandler) {
         ioHandler.println("Good Bye!");
         return null;
     }

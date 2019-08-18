@@ -1,11 +1,8 @@
 package com.twu.biblioteca.views;
 
-import com.twu.biblioteca.IOHandler;
 import com.twu.biblioteca.controllers.MainMenuController;
-import com.twu.biblioteca.controllers.TableInteractionController;
-import com.twu.biblioteca.views.parts.NavigationBar;
 
-public class MainMenuView extends TableInteractionView {
+public class MainMenuView extends InteractiveView {
     private static final MainMenuView mainMenuView_singleton = new MainMenuView();
 
     private MainMenuView() {

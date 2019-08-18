@@ -1,17 +1,15 @@
 package com.twu.biblioteca.views;
 
-import com.twu.biblioteca.controllers.TableInteractionController;
+import com.twu.biblioteca.controllers.InteractiveViewController;
 import com.twu.biblioteca.IOHandler;
 
-public abstract class TableInteractionView extends View {
-    protected TableInteractionController controller;
+public abstract class InteractiveView extends View {
+    protected InteractiveViewController controller;
 
     public View enter(IOHandler ioHandler){
 
         ioHandler.println(this.controller.getTitle());
-
         ioHandler.println(this.controller.getBody());
-
         ioHandler.println(this.controller.getNavigationBarString());
         ioHandler.println(this.controller.getRequestInputMessage());
 

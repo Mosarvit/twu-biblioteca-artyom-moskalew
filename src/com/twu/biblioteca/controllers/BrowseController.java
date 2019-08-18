@@ -1,10 +1,9 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.BookEntries;
-import com.twu.biblioteca.views.BrowseView;
 import com.twu.biblioteca.views.View;
 
-public class BrowseController extends TableInteractionController {
+public class BrowseController extends InteractiveViewController {
     public BrowseController(View view){
         this.bookAction = book -> book.checkOut();
         this.bookSelection = () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse();

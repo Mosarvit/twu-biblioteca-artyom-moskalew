@@ -1,10 +1,9 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.BookEntries;
-import com.twu.biblioteca.views.ReturnView;
 import com.twu.biblioteca.views.View;
 
-public class ReturnController extends TableInteractionController {
+public class ReturnController extends InteractiveViewController {
     public ReturnController(View view){
         this.bookAction = book -> book.returnBook();
         this.bookSelection = () -> BookEntries.selectAllBooksWhereCheckedOutIsTrue();
