@@ -57,7 +57,7 @@ public class UserLoginViewTest {
                         UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_USERNAME + UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_PASSWORD + UI_GLOBALS.LINE_BREAK +
-                        UI_GLOBALS.USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART + "username1" + UI_GLOBALS.LINE_BREAK
+                        UI_GLOBALS.USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -70,6 +70,32 @@ public class UserLoginViewTest {
         UserLogInView userLogInView = UserLogInView.getInstance();
 
         User user1 = new User("123-4567", "password1");
+
+        Database.add(user1);
+
+//         Act
+        userLogInView.enter(iOHandler);
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput =
+                UI_GLOBALS.USER_LOG_IN_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_USERNAME + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_PASSWORD + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_FAILED_LOG_IN_MESSAGE + UI_GLOBALS.LINE_BREAK
+                ;
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void userLoginTestTest_3() {
+//         Arrange
+        System.setIn(new ByteArrayInputStream("123-4567\npassword2\nx\n".getBytes()));
+        IOHandler iOHandler = new IOHandler();
+        UserLogInView userLogInView = UserLogInView.getInstance();
+
+        User user1 = new User("000-0000", "password1");
 
         Database.add(user1);
 
