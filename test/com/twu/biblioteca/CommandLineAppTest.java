@@ -207,4 +207,88 @@ public class CommandLineAppTest {
                 "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
+
+    @Test
+    public void checkOutThenReturnMovieTest() {
+//         Arrange
+        System.setIn(new ByteArrayInputStream("m\n2\nrm\n1\nb\nx\n".getBytes()));
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+
+        Movie movieForrestGump = new Movie("Forrest Gump", "Robert Zemeckis", 1994);
+        Movie movieMatrix = new Movie("Matrix", "Lana Wachowski, Lilly Wachowski", 1999);
+        Movie movieTheGodfather = new Movie("The Godfather", "Francis Ford Coppola", 1972);
+
+        Database.add(movieForrestGump);
+        Database.add(movieMatrix);
+        Database.add(movieTheGodfather);
+
+//         Act
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
+                "This is the Main Menu.\n" +
+                "\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type an option from the Navigation Bar and then hit Enter:\n" +
+                "You selected option [m].\n" +
+                "\n" +
+                "Here are the movies in our library:\n" +
+                "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
+                "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
+                "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
+                "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
+                "\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
+                "You selected option [2].\n" +
+                "\"Matrix\" is checked out.\n" +
+                "Thank you! Enjoy the movie.\n" +
+                "\n" +
+                "Here are the movies in our library:\n" +
+                "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
+                "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
+                "[2] | The Godfather | Francis Ford Coppola | 1972\n"+
+                "\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
+                "You selected option [rb].\n" +
+                "\n" +
+                "Here are movies, that you can return:\n" +
+                "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
+                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
+                "\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
+                "You selected option [1].\n" +
+                "\"Matrix\" has been returned.\n" +
+                "Thank you for returning the book!\n" +
+                "\n" +
+                "Here are movies, that you can return:\n" +
+                "There are no movies that can be returned.\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
+                "\n" +
+                "You selected option [m].\n" +
+                "\n" +
+                "Here are the movies in our library:\n" +
+                "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
+                "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
+                "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
+                "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
+                "\n" +
+                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
+                "You selected option [x].\n" +
+                "Good Bye!\n";
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
 }

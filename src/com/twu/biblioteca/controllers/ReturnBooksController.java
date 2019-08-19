@@ -3,8 +3,8 @@ package com.twu.biblioteca.controllers;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.views.View;
 
-public class ReturnController extends InteractiveViewController {
-    public ReturnController(View view){
+public class ReturnBooksController extends InteractiveViewController {
+    public ReturnBooksController(View view){
         this.mediaAction = book -> book.returnBook();
         this.mediaSelection = () -> Database.selectAllBooksWhereCheckedOutIsTrue();
         this.viewTitle = "Here are books, that you can return:";
@@ -14,7 +14,6 @@ public class ReturnController extends InteractiveViewController {
         this.requestInputMessage = "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:";
         this.emptyListMessage = "There are currently no books to return. You need to check out books first.";
         this.correspondingView = view;
-        this.nextView = view
-        ;
+        this.nextView = view;
     }
 }
