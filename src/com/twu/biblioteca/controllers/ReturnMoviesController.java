@@ -6,7 +6,7 @@ import com.twu.biblioteca.views.View;
 public class ReturnMoviesController extends InteractiveViewController {
     public ReturnMoviesController(View view){
         this.mediaAction = book -> book.returnBook();
-        this.mediaSelection = () -> Database.selectAllMoviesWhereCheckedOutIsTrue();
+        this.mediaSelection = () -> Database.selectAllCheckedOutMoviesVisibleToCurrentUser();
         this.viewHeader = "Here are movies, that you can return:";
         this.onSuccessMessagePart = "has been returned";
         this.wrongNumberSelectedMessage = "That is not a valid movie to return. Please try again.";

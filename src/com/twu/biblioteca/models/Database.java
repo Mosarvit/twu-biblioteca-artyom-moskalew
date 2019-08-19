@@ -1,5 +1,7 @@
 package com.twu.biblioteca.models;
 
+import com.twu.biblioteca.Session;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -96,5 +98,34 @@ public class Database {
             }
         }
         return null;
+    }
+
+
+    public static ArrayList<Media> selectAllCheckedOutMoviesVisibleToCurrentUser() {
+        String tableName = "MovieTable";
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        if (tables.containsKey(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
+                if (media.holder == Session.getLoggedInUser()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
+                }
+            }
+        }
+        return allBooksWhereCheckedOutIsFalse;
+    }
+
+    public static ArrayList<Media> selectAllCheckedOutBooksVisibleToCurrentUser() {
+        String tableName = "BookTable";
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        if (tables.containsKey(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
+                if (media.holder == Session.getLoggedInUser()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
+                }
+            }
+        }
+        return allBooksWhereCheckedOutIsFalse;
     }
 }

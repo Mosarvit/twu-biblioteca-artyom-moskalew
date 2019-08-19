@@ -3,13 +3,12 @@ package com.twu.biblioteca.models;
 import com.twu.biblioteca.Session;
 
 public abstract class Media extends Model {
-    protected boolean checkedOut = false;
     protected int releaseYear;
     protected String title;
-    private User holder;
+    protected User holder;
 
     public boolean isCheckedOut() {
-        return this.checkedOut;
+        return holder != null;
     }
 
     public String getTitle() {
@@ -21,12 +20,11 @@ public abstract class Media extends Model {
     }
 
     public void returnBook() {
-        this.checkedOut = false;
+        this.holder = null;
     }
 
     public void checkOut() {
         this.holder = Session.getLoggedInUser();
-        this.checkedOut = true;
     }
 
     public User getHodlder() {
