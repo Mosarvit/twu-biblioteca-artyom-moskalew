@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.BookEntry;
-import com.twu.biblioteca.models.BookEntries;
+import com.twu.biblioteca.models.BookCopy;
+import com.twu.biblioteca.models.BookCopies;
 import com.twu.biblioteca.views.ReturnView;
 import org.junit.*;
 
@@ -29,7 +29,7 @@ public class ReturnViewTest {
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
-        BookEntries.clear();
+        BookCopies.clear();
     }
 
     @Test
@@ -39,13 +39,13 @@ public class ReturnViewTest {
         IOHandler iOHandler = new IOHandler();
         ReturnView returnView = ReturnView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
         bookWalden.checkOut();
         bookAgileSoftwareDevelopment.checkOut();
@@ -75,13 +75,13 @@ public class ReturnViewTest {
         IOHandler iOHandler = new IOHandler();
         ReturnView returnView = ReturnView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
         bookWalden.checkOut();
         bookAgileSoftwareDevelopment.checkOut();
@@ -114,13 +114,13 @@ public class ReturnViewTest {
         IOHandler iOHandler = new IOHandler();
         ReturnView returnView = ReturnView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
         bookWalden.checkOut();
         bookAgileSoftwareDevelopment.checkOut();

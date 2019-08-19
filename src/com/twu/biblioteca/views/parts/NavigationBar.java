@@ -1,6 +1,5 @@
 package com.twu.biblioteca.views.parts;
 
-import com.twu.biblioteca.IOHandler;
 import com.twu.biblioteca.views.*;
 
 import java.util.LinkedHashMap;
@@ -13,7 +12,7 @@ public class NavigationBar {
 
     private NavigationBar() {
         this.menuOptionsHM.put("m", MainMenuView.getInstance());
-        this.menuOptionsHM.put("l", BrowseView.getInstance());
+        this.menuOptionsHM.put("l", BrowseBooksView.getInstance());
         this.menuOptionsHM.put("r", ReturnView.getInstance());
         this.menuOptionsHM.put("x", QuitView.getInstance());
     }

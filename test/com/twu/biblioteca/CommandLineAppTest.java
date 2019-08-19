@@ -1,10 +1,8 @@
 package com.twu.biblioteca;
 
 
-import com.twu.biblioteca.controllers.MainMenuController;
-import com.twu.biblioteca.models.BookEntry;
-import com.twu.biblioteca.models.BookEntries;
-import com.twu.biblioteca.views.MainMenuView;
+import com.twu.biblioteca.models.BookCopy;
+import com.twu.biblioteca.models.BookCopies;
 import org.junit.*;
 
 import java.awt.*;
@@ -30,7 +28,7 @@ public class CommandLineAppTest {
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
-        BookEntries.clear();
+        BookCopies.clear();
     }
 
     @Test
@@ -129,13 +127,13 @@ public class CommandLineAppTest {
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
 //         Act
         commandLineApp.start();

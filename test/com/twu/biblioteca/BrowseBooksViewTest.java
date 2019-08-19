@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.BookEntry;
-import com.twu.biblioteca.models.BookEntries;
-import com.twu.biblioteca.views.BrowseView;
+import com.twu.biblioteca.models.BookCopy;
+import com.twu.biblioteca.models.BookCopies;
+import com.twu.biblioteca.views.BrowseBooksView;
 import org.junit.*;
 
 import java.io.ByteArrayInputStream;
@@ -13,7 +13,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 
 
-public class BrowseViewTest {
+public class BrowseBooksViewTest {
 
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -29,7 +29,7 @@ public class BrowseViewTest {
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
-        BookEntries.clear();
+        BookCopies.clear();
     }
 
     @Test
@@ -37,18 +37,18 @@ public class BrowseViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("x\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        BrowseView browseView = BrowseView.getInstance();
+        BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        browseView.enter(iOHandler);
+        browseBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -71,18 +71,18 @@ public class BrowseViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("1\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        BrowseView browseView = BrowseView.getInstance();
+        BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        browseView.enter(iOHandler);
+        browseBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -108,18 +108,18 @@ public class BrowseViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("4\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        BrowseView browseView = BrowseView.getInstance();
+        BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookEntry bookAnnaKarenina = new BookEntry("Anna Karenina", "Leo Tolstoy", 1877);
-        BookEntry bookWalden = new BookEntry("Walden", "Henry David Thoreau", 1854);
-        BookEntry bookAgileSoftwareDevelopment = new BookEntry("Agile Software Development", "Robert Cecil Martin", 2003);
+        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
+        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
+        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookEntries.add(bookAnnaKarenina);
-        BookEntries.add(bookWalden);
-        BookEntries.add(bookAgileSoftwareDevelopment);
+        BookCopies.add(bookAnnaKarenina);
+        BookCopies.add(bookWalden);
+        BookCopies.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        browseView.enter(iOHandler);
+        browseBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();

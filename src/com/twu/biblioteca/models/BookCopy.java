@@ -1,15 +1,14 @@
 package com.twu.biblioteca.models;
 
-public class BookEntry {
-    private final int yearPublished;
-    private final String author;
-    private final String title;
+public class BookCopy extends MediaCopy {
     private boolean checkedOut = false;
+    private String author;
 
-    public BookEntry(String title, String author, int yearPublished) {
+    public BookCopy(String title, String author, int yearReleased) {
         this.title = title;
         this.author = author;
-        this.yearPublished = yearPublished;
+        this.yearReleased = yearReleased;
+        this.mediaType = "Book";
     }
 
     public String getAuthor() {
@@ -20,8 +19,8 @@ public class BookEntry {
         return this.title;
     }
 
-    public int getYearPublished() {
-        return this.yearPublished;
+    public int getYearReleased() {
+        return this.yearReleased;
     }
 
     public boolean isCheckedOut() {

@@ -1,12 +1,12 @@
 package com.twu.biblioteca.controllers;
 
-import com.twu.biblioteca.models.BookEntries;
+import com.twu.biblioteca.models.BookCopies;
 import com.twu.biblioteca.views.View;
 
-public class BrowseController extends InteractiveViewController {
-    public BrowseController(View view){
+public class BrowseBooksController extends InteractiveViewController {
+    public BrowseBooksController(View view){
         this.bookAction = book -> book.checkOut();
-        this.bookSelection = () -> BookEntries.selectAllBooksWhereCheckedOutIsFalse();
+        this.bookSelection = () -> BookCopies.selectAllBooksWhereCheckedOutIsFalse();
         this.viewTitle = "Here are the books in our library:";
         this.onSuccessMessagePart = "is checked out";
         this.wrongNumberSelectedMessage = "Sorry, that book is not available. Please try again.";

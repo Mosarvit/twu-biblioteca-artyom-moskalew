@@ -1,6 +1,6 @@
 package com.twu.biblioteca.controllers;
 
-import com.twu.biblioteca.models.BookEntry;
+import com.twu.biblioteca.models.BookCopy;
 import com.twu.biblioteca.views.View;
 import com.twu.biblioteca.views.helpers.TablePrinter;
 import com.twu.biblioteca.views.parts.NavigationBar;
@@ -20,17 +20,17 @@ public abstract class InteractiveViewController implements Controller {
     protected View nextView;
 
 
-    public String applyActionToBook(BookEntry bookSelectedForCheckOut) {
+    public String applyActionToBook(BookCopy bookSelectedForCheckOut) {
         this.bookAction.applyToBook(bookSelectedForCheckOut);
         return "\"" + bookSelectedForCheckOut.getTitle() + "\" " + this.onSuccessMessagePart + ".";
     }
 
     public String processNumericalInput(String userSelectedOptionString) {
-        ArrayList<BookEntry> selectedEntries = this.bookSelection.selectBooks();
+        ArrayList<BookCopy> selectedEntries = this.bookSelection.selectBooks();
         String response = "";
         int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
         if (userSelectedNumber <= selectedEntries.size()) {
-            BookEntry bookSelectedForCheckOut = selectedEntries.get(userSelectedNumber - 1);
+            BookCopy bookSelectedForCheckOut = selectedEntries.get(userSelectedNumber - 1);
             response += applyActionToBook(bookSelectedForCheckOut) + "\n";
             response += this.thankYouMessage;
         } else {
@@ -89,7 +89,7 @@ public abstract class InteractiveViewController implements Controller {
     public String getBody() {
         String tableString = "";
 
-        ArrayList<BookEntry> checkOutableBooks = bookSelection.selectBooks();
+        ArrayList<BookCopy> checkOutableBooks = bookSelection.selectBooks();
 
         if (checkOutableBooks.isEmpty()) {
             tableString += this.emptyListMessage + "\n";
@@ -102,10 +102,10 @@ public abstract class InteractiveViewController implements Controller {
 
 
     interface BookAction {
-        void applyToBook(BookEntry book);
+        void applyToBook(BookCopy book);
     }
 
     interface BookSelection {
-        ArrayList<BookEntry> selectBooks();
+        ArrayList<BookCopy> selectBooks();
     }
 }
