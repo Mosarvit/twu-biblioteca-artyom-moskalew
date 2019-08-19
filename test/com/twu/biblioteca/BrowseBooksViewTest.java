@@ -99,7 +99,8 @@ public class BrowseBooksViewTest {
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [1].\n" +
                         "\"Anna Karenina\" is checked out.\n" +
-                        "Thank you! Enjoy the book.\n"
+                        "Thank you! Enjoy the book.\n" +
+                        "\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -135,8 +136,8 @@ public class BrowseBooksViewTest {
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [4].\n" +
-                        "Sorry, that book is not available. Please try again.\n"
-                ;
+                        "Sorry, that book is not available. Please try again.\n" +
+                        "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 }

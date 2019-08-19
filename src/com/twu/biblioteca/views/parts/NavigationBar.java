@@ -15,6 +15,7 @@ public class NavigationBar {
         this.menuOptionsHM.put("b", BrowseBooksView.getInstance());
         this.menuOptionsHM.put("rb", ReturnBooksView.getInstance());
         this.menuOptionsHM.put("m", BrowseMoviesView.getInstance());
+        this.menuOptionsHM.put("rm", ReturnMoviesView.getInstance());
         this.menuOptionsHM.put("x", QuitView.getInstance());
     }
 

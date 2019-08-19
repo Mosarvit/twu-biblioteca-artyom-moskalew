@@ -21,7 +21,7 @@ public class MainMenuControllerTest {
         View actualView = mainMenuController.getNextView();
 
 //        Assert
-        String expectedOutput = "This is not a valid menu option. Please try again.";
+        String expectedOutput = "This is not a valid menu option. Please try again.\n";
         View expectedView = MainMenuView.getInstance();
         Assert.assertThat(actualOutput, is(expectedOutput));
         Assert.assertThat(actualView, is(expectedView));

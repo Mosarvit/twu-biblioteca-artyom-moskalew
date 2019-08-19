@@ -110,6 +110,7 @@ public class CommandLineAppTest {
                 "Please type an option from the Navigation Bar and then hit Enter:\n" +
                 "You selected option [abc].\n" +
                 "This is not a valid menu option. Please try again.\n" +
+                "\n"+
                 "This is the Main Menu.\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
@@ -211,7 +212,7 @@ public class CommandLineAppTest {
     @Test
     public void checkOutThenReturnMovieTest() {
 //         Arrange
-        System.setIn(new ByteArrayInputStream("m\n2\nrm\n1\nb\nx\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("m\n2\nrm\n1\nm\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
 
@@ -257,7 +258,7 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [rb].\n" +
+                "You selected option [rm].\n" +
                 "\n" +
                 "Here are movies, that you can return:\n" +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -265,17 +266,17 @@ public class CommandLineAppTest {
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
-                "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
+                "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [1].\n" +
                 "\"Matrix\" has been returned.\n" +
-                "Thank you for returning the book!\n" +
+                "Thank you for returning the movie!\n" +
                 "\n" +
                 "Here are movies, that you can return:\n" +
-                "There are no movies that can be returned.\n" +
+                "There are currently no movies to return. You need to check out moviess first.\n" +
+                "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
-                "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                "\n" +
+                "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
@@ -288,6 +289,7 @@ public class CommandLineAppTest {
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 "You selected option [x].\n" +
+                "\n" +
                 "Good Bye!\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }

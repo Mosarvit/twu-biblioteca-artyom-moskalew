@@ -103,7 +103,8 @@ public class ReturnBooksViewTest {
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [2].\n" +
                         "\"Agile Software Development\" has been returned.\n" +
-                        "Thank you for returning the book!\n"
+                        "Thank you for returning the book!\n"+
+                        "\n" 
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -141,7 +142,8 @@ public class ReturnBooksViewTest {
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [3].\n" +
-                        "That is not a valid book to return. Please try again.\n"
+                        "That is not a valid book to return. Please try again.\n" +
+                        "\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }

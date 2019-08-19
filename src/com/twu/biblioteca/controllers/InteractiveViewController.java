@@ -75,6 +75,7 @@ public abstract class InteractiveViewController implements Controller {
             response += "This is not a valid menu option. Please try again.";
             this.nextView = this.correspondingView;
         }
+        response += "\n";
         return response;
     }
 
