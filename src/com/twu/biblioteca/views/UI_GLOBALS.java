@@ -23,4 +23,5 @@ public class UI_GLOBALS {
     public static final String USER_LOG_IN_VIEW_REQUEST_USERNAME = "Please enter your user name";
     public static final String USER_LOG_IN_VIEW_REQUEST_PASSWORD = "Please enter your password";
     public static final String USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART = "You successfully logged in as ";
+    public static final String USER_LOG_IN_VIEW_FAILED_LOG_IN_MESSAGE_PART = "Invalid user/password combination. Please try again.";
 }
