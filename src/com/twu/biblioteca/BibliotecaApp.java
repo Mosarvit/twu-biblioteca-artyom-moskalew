@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.BookCopy;
-import com.twu.biblioteca.models.BookCopies;
+import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.models.Database;
 
 public class BibliotecaApp {
 
@@ -9,13 +9,13 @@ public class BibliotecaApp {
         IOHandler ioHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(ioHandler);
 
-        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
-        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
+        Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
+        Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookCopies.add(bookAnnaKarenina);
-        BookCopies.add(bookWalden);
-        BookCopies.add(bookAgileSoftwareDevelopment);
+        Database.add(bookAnnaKarenina);
+        Database.add(bookWalden);
+        Database.add(bookAgileSoftwareDevelopment);
 
         commandLineApp.start();
     }

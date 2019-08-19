@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.controllers.ReturnController;
-import com.twu.biblioteca.models.BookCopies;
-import com.twu.biblioteca.models.BookCopy;
+import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.views.ReturnView;
 import org.junit.After;
 import org.junit.Assert;
@@ -13,12 +13,12 @@ import static org.hamcrest.core.Is.is;
 public class ReturnControllerTest {
     @After
     public void restoreStreams() {
-        BookCopies.clear();
+        Database.clear();
     }
     @Test
     public void applyActionToBookTest1() {
         // Arrange
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
         ReturnController returnController = new ReturnController(ReturnView.getInstance());
 
         // Act
@@ -32,8 +32,8 @@ public class ReturnControllerTest {
     @Test
     public void processNumericalInputTest() {
         // Arrange
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
-        BookCopies.add(bookAgileSoftwareDevelopment);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
+        Database.add(bookAgileSoftwareDevelopment);
         bookAgileSoftwareDevelopment.checkOut();
         ReturnController returnController = new ReturnController(ReturnView.getInstance());
 

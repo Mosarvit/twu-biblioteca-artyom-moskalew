@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.BookCopy;
-import com.twu.biblioteca.models.BookCopies;
+import com.twu.biblioteca.models.Book;
+import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.views.BrowseBooksView;
 import org.junit.*;
 
@@ -29,7 +29,7 @@ public class BrowseBooksViewTest {
     public void restoreStreams() {
         System.setOut(originalOut);
         System.setIn(originalIn);
-        BookCopies.clear();
+        Database.clear();
     }
 
     @Test
@@ -39,13 +39,13 @@ public class BrowseBooksViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
-        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
+        Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
+        Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookCopies.add(bookAnnaKarenina);
-        BookCopies.add(bookWalden);
-        BookCopies.add(bookAgileSoftwareDevelopment);
+        Database.add(bookAnnaKarenina);
+        Database.add(bookWalden);
+        Database.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseBooksView.enter(iOHandler);
@@ -73,13 +73,13 @@ public class BrowseBooksViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
-        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
+        Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
+        Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookCopies.add(bookAnnaKarenina);
-        BookCopies.add(bookWalden);
-        BookCopies.add(bookAgileSoftwareDevelopment);
+        Database.add(bookAnnaKarenina);
+        Database.add(bookWalden);
+        Database.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseBooksView.enter(iOHandler);
@@ -110,13 +110,13 @@ public class BrowseBooksViewTest {
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
 
-        BookCopy bookAnnaKarenina = new BookCopy("Anna Karenina", "Leo Tolstoy", 1877);
-        BookCopy bookWalden = new BookCopy("Walden", "Henry David Thoreau", 1854);
-        BookCopy bookAgileSoftwareDevelopment = new BookCopy("Agile Software Development", "Robert Cecil Martin", 2003);
+        Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
+        Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
 
-        BookCopies.add(bookAnnaKarenina);
-        BookCopies.add(bookWalden);
-        BookCopies.add(bookAgileSoftwareDevelopment);
+        Database.add(bookAnnaKarenina);
+        Database.add(bookWalden);
+        Database.add(bookAgileSoftwareDevelopment);
 
 //         Act
         browseBooksView.enter(iOHandler);

@@ -1,12 +1,12 @@
 package com.twu.biblioteca.controllers;
 
-import com.twu.biblioteca.models.BookCopies;
+import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.views.View;
 
 public class ReturnController extends InteractiveViewController {
     public ReturnController(View view){
         this.bookAction = book -> book.returnBook();
-        this.bookSelection = () -> BookCopies.selectAllBooksWhereCheckedOutIsTrue();
+        this.bookSelection = () -> Database.selectAllBooksWhereCheckedOutIsTrue();
         this.viewTitle = "Here are books, that you can return:";
         this.onSuccessMessagePart = "has been returned";
         this.wrongNumberSelectedMessage = "That is not a valid book to return. Please try again.";
