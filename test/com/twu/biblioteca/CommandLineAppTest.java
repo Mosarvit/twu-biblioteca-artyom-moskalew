@@ -48,7 +48,9 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE +
+                UI_GLOBALS.LINE_BREAK +
+                UI_TEST_GLOBALS.LOGGED_OUT_USER_NAVIGATION_BAR +
                 UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x]." + UI_GLOBALS.LINE_BREAK +
@@ -73,7 +75,7 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
@@ -81,7 +83,7 @@ public class CommandLineAppTest {
                 "Here are the books in our library:\n" +
                 "There are currently no books in the library. Please try later.\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
@@ -106,7 +108,7 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 UI_GLOBALS.LINE_BREAK +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [abc].\n" +
@@ -114,7 +116,7 @@ public class CommandLineAppTest {
                 "\n"+
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "" +
                 "\n" +
@@ -147,7 +149,7 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
@@ -158,7 +160,7 @@ public class CommandLineAppTest {
                 "[2] | Walden | Henry David Thoreau | 1854\n" +
                 "[3] | Agile Software Development | Robert Cecil Martin | 2003\n"+
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
@@ -190,7 +192,7 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
@@ -201,7 +203,7 @@ public class CommandLineAppTest {
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
                 "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
@@ -233,7 +235,7 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
@@ -244,7 +246,7 @@ public class CommandLineAppTest {
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
                 "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [2].\n" +
@@ -256,7 +258,7 @@ public class CommandLineAppTest {
                 "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                 "[2] | The Godfather | Francis Ford Coppola | 1972\n"+
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [rm].\n" +
@@ -265,7 +267,7 @@ public class CommandLineAppTest {
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [1].\n" +
@@ -275,7 +277,7 @@ public class CommandLineAppTest {
                 "Here are movies, that you can return:\n" +
                 "There are currently no movies to return. You need to check out moviess first.\n" +
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
@@ -286,7 +288,7 @@ public class CommandLineAppTest {
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
                 "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
                 "\n" +
-                UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +

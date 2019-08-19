@@ -60,7 +60,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                        UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n\n";
@@ -94,7 +94,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                        UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [1].\n" +
@@ -132,7 +132,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
+                        UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [4].\n" +
