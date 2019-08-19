@@ -4,10 +4,10 @@ import com.twu.biblioteca.views.AccountInfoView;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
 
-public class CommandLineApp {
+public class Program {
     private final IOHandler ioHandler;
 
-    public CommandLineApp(IOHandler ioHandler) {
+    public Program(IOHandler ioHandler) {
         this.ioHandler = ioHandler;
     }
 

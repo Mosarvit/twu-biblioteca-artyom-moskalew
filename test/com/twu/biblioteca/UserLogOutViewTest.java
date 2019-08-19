@@ -2,9 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.User;
-import com.twu.biblioteca.views.UI_GLOBALS;
-import com.twu.biblioteca.views.UserLogInView;
-import com.twu.biblioteca.views.UserLogOutView;
+import com.twu.biblioteca.views.*;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -50,7 +48,7 @@ public class UserLogOutViewTest {
         Database.add(user1);
 
 //         Act
-        userLogOutView.enter(iOHandler);
+        View returnedView = userLogOutView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -62,6 +60,7 @@ public class UserLogOutViewTest {
 
         Assert.assertThat(actualOutput, is(expectedOutput));
         Assert.assertThat(Session.userIsLoggedIn(), is(false));
+        Assert.assertThat(returnedView, is(AccountInfoView.getInstance()));
     }
 
 

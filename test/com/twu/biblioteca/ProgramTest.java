@@ -15,7 +15,7 @@ import java.io.PrintStream;
 
 import static org.hamcrest.core.Is.is;
 
-public class CommandLineAppTest {
+public class ProgramTest {
 
     private  ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
@@ -41,10 +41,10 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("x\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -68,11 +68,11 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("abc\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         Session.setLoggedInUser(new User("123-4567", "password1"));
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -107,11 +107,11 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         Session.setLoggedInUser(new User("123-4567", "password1"));
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -146,7 +146,7 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
@@ -158,7 +158,7 @@ public class CommandLineAppTest {
         Database.add(bookAgileSoftwareDevelopment);
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -193,7 +193,7 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("m\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         Session.setLoggedInUser(new User("123-4567", "password1"));
 
 
@@ -206,7 +206,7 @@ public class CommandLineAppTest {
         Database.add(movieTheGodfather);
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -241,7 +241,7 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("m\n2\nrm\n1\nm\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Movie movieForrestGump = new Movie("Forrest Gump", "Robert Zemeckis", 1994);
@@ -253,7 +253,7 @@ public class CommandLineAppTest {
         Database.add(movieTheGodfather);
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -335,7 +335,7 @@ public class CommandLineAppTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("li\n123-4567\npassword1\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Program program = new Program(iOHandler);
         User user1 = new User("123-4567", "password1");
 
         Database.add(user1);
@@ -349,7 +349,7 @@ public class CommandLineAppTest {
         Database.add(movieTheGodfather);
 
 //         Act
-        commandLineApp.start();
+        program.start();
 
 //        Assert
         String actualOutput = outContent.toString();

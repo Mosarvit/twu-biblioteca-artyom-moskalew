@@ -8,7 +8,7 @@ public class BibliotecaApp {
 
     public static void main(String[] args) {
         IOHandler ioHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(ioHandler);
+        Program program = new Program(ioHandler);
 
         User user1 = new User("123-4567", "password1");
         User user2 = new User("123-4568", "password1");
@@ -26,6 +26,6 @@ public class BibliotecaApp {
 
 
 
-        commandLineApp.start();
+        program.start();
     }
 }
