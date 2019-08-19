@@ -26,4 +26,6 @@ public class UI_GLOBALS {
     public static final String USER_LOG_IN_VIEW_FAILED_LOG_IN_MESSAGE = "Invalid user/password combination. Please try again.";
     public static final String MAIN_MENU_LOGGED_OUT_USER_MESSAGE = "You are currently logged out. Please log in to check out or return media";
     public static final String NAVIGATION_BAR_LOG_IN_LABEL = "Log in";
+    public static final String NAVIGATION_BAR_USER_LOG_OUT_LABEL = "Log out";
+    public static final Object MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART = "You are logged in as ";
 }

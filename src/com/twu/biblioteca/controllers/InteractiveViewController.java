@@ -93,7 +93,7 @@ public abstract class InteractiveViewController extends Controller {
         ArrayList<Media> checkOutableBooks = mediaSelection.selectMedia();
 
         if (checkOutableBooks.isEmpty()) {
-            tableString += this.emptyListMessage ;
+            tableString += this.emptyListMessage + UI_GLOBALS.LINE_BREAK ;
         } else {
             tableString += TablePrinter.getTableAsString(checkOutableBooks);
         }

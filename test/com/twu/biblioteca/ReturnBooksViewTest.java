@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.ReturnBooksView;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.*;
@@ -31,6 +32,7 @@ public class ReturnBooksViewTest {
         System.setOut(originalOut);
         System.setIn(originalIn);
         Database.clear();
+        Session.clear();
     }
 
     @Test
@@ -39,6 +41,7 @@ public class ReturnBooksViewTest {
         System.setIn(new ByteArrayInputStream("x\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -58,6 +61,7 @@ public class ReturnBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
@@ -75,6 +79,7 @@ public class ReturnBooksViewTest {
         System.setIn(new ByteArrayInputStream("2\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -94,6 +99,7 @@ public class ReturnBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
@@ -115,6 +121,7 @@ public class ReturnBooksViewTest {
         System.setIn(new ByteArrayInputStream("3\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -134,6 +141,7 @@ public class ReturnBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +

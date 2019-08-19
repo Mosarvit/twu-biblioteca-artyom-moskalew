@@ -4,6 +4,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.Movie;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.*;
 
@@ -31,6 +32,7 @@ public class CommandLineAppTest {
         System.setOut(originalOut);
         System.setIn(originalIn);
         Database.clear();
+        Session.clear();
     }
 
     @Test
@@ -66,29 +68,33 @@ public class CommandLineAppTest {
         System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
 //         Act
         commandLineApp.start();
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
-                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
-                "\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
-                "\n" +
-                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
-                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
-                "\n" +
-                "Here are the books in our library:\n" +
-                "There are currently no books in the library. Please try later.\n" +
-                "\n" +
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b]." + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                "Here are the books in our library:" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                "There are currently no books in the library. Please try later." + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
-                "\n" +
-                "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
-                "\n" +
-                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n"
+                UI_GLOBALS.LINE_BREAK +
+                "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x]." + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + UI_GLOBALS.LINE_BREAK
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -99,6 +105,7 @@ public class CommandLineAppTest {
         System.setIn(new ByteArrayInputStream("abc\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
 //         Act
         commandLineApp.start();
@@ -108,6 +115,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
@@ -116,6 +125,8 @@ public class CommandLineAppTest {
                 "\n"+
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "" +
@@ -132,6 +143,7 @@ public class CommandLineAppTest {
         System.setIn(new ByteArrayInputStream("b\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -149,12 +161,15 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
                 "\n" +
                 "Here are the books in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                 "[2] | Walden | Henry David Thoreau | 1854\n" +
@@ -175,6 +190,8 @@ public class CommandLineAppTest {
         System.setIn(new ByteArrayInputStream("m\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
+
 
         Movie movieForrestGump = new Movie("Forrest Gump", "Robert Zemeckis", 1994);
         Movie movieMatrix = new Movie("Matrix", "Lana Wachowski, Lilly Wachowski", 1999);
@@ -192,12 +209,15 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
@@ -218,6 +238,7 @@ public class CommandLineAppTest {
         System.setIn(new ByteArrayInputStream("m\n2\nrm\n1\nm\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Movie movieForrestGump = new Movie("Forrest Gump", "Robert Zemeckis", 1994);
         Movie movieMatrix = new Movie("Matrix", "Lana Wachowski, Lilly Wachowski", 1999);
@@ -235,12 +256,15 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
@@ -254,6 +278,7 @@ public class CommandLineAppTest {
                 "Thank you! Enjoy the movie.\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                 "[2] | The Godfather | Francis Ford Coppola | 1972\n"+
@@ -264,6 +289,7 @@ public class CommandLineAppTest {
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [rm].\n" +
                 "\n" +
                 "Here are movies, that you can return:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
                 "\n" +
@@ -275,6 +301,7 @@ public class CommandLineAppTest {
                 "Thank you for returning the movie!\n" +
                 "\n" +
                 "Here are movies, that you can return:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "There are currently no movies to return. You need to check out moviess first.\n" +
                 "\n" +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
@@ -283,6 +310,7 @@ public class CommandLineAppTest {
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                 "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                 "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +

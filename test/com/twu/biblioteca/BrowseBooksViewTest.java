@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.BrowseBooksView;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.*;
@@ -39,6 +40,7 @@ public class BrowseBooksViewTest {
         System.setIn(new ByteArrayInputStream("x\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -55,6 +57,7 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
@@ -73,6 +76,7 @@ public class BrowseBooksViewTest {
         System.setIn(new ByteArrayInputStream("1\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -112,6 +116,7 @@ public class BrowseBooksViewTest {
         System.setIn(new ByteArrayInputStream("4\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
+        Session.setLoggedInUser(new User("123-4567", "password1"));
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -128,6 +133,7 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +

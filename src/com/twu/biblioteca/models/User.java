@@ -9,7 +9,7 @@ public class User extends Model{
         this.password = password;
     }
 
-    public Object getUserName() {
+    public String getUserName() {
         return this.username;
     }
 

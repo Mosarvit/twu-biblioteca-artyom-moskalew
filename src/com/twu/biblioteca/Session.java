@@ -12,4 +12,12 @@ public class Session {
     public static boolean getUserIsLoggedIn() {
         return loggedInUser != null;
     }
+
+    public static void setLoggedInUser(User user) {
+        loggedInUser = user;
+    }
+
+    public static void clear() {
+        loggedInUser = null;
+    }
 }
