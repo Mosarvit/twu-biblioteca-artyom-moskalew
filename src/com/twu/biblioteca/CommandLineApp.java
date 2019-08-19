@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.views.MainMenuView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
 
 public class CommandLineApp {
@@ -11,7 +12,7 @@ public class CommandLineApp {
     }
 
     public void start() {
-        this.ioHandler.println("Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!");
+        this.ioHandler.println(UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "");
 
         View currentView = MainMenuView.getInstance();
 

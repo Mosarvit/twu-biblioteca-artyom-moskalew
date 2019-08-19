@@ -65,7 +65,7 @@ public class ReturnBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n\n";
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -101,10 +101,10 @@ public class ReturnBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [2].\n" +
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [2].\n" +
                         "\"Agile Software Development\" has been returned.\n" +
                         "Thank you for returning the book!\n"+
-                        "\n" 
+                        "\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -141,7 +141,7 @@ public class ReturnBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [3].\n" +
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [3].\n" +
                         "That is not a valid book to return. Please try again.\n" +
                         "\n"
                 ;

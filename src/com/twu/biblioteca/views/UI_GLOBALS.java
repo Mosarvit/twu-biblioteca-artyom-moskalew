@@ -10,4 +10,11 @@ public class UI_GLOBALS {
     public static final String NAVIGATION_BAR_LABELS_RETURN_MOVIES = "Return Movies";
     public static final String NAVIGATION_BAR_LABELS_QUIT_BIBLIOTECA = "Quit Biblioteca";
 
+    public static final String MAIN_MENU_VIEW_HEADER = "This is the Main Menu.";
+    public static final String LINE_BREAK = "\n";
+    public static final String MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE =  "Please type an option from the Navigation Bar and then hit Enter:";
+    public static final String YOU_SELECTED_MESSAGE_PART = "You selected optoin ";
+    public static final String MAIN_MENU_INVALID_USER_INPUT_MESSAGE = "This is not a valid menu option. Please try again.";
+    public static final String BIBLIOTECA_WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
+    public static final String BIBLIOTECA_GOOD_BYE_MESSAGE = "Good Bye!";
 }

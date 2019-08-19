@@ -1,6 +1,7 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.Media;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
 import com.twu.biblioteca.views.helpers.TablePrinter;
 import com.twu.biblioteca.views.parts.NavigationBar;
@@ -72,7 +73,7 @@ public abstract class InteractiveViewController implements Controller {
             response += processNumericalInput(userSelectedOptionString);
             this.nextView = this.correspondingView;
         } else {
-            response += "This is not a valid menu option. Please try again.";
+            response += UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE;
             this.nextView = this.correspondingView;
         }
         response += "\n";

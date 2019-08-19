@@ -45,15 +45,16 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
-                "\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
-                "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [x].\n" +
-                "\n" +
-                "Good Bye!\n";
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x]." + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + UI_GLOBALS.LINE_BREAK
+                ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -69,13 +70,13 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [b].\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
                 "\n" +
                 "Here are the books in our library:\n" +
                 "There are currently no books in the library. Please try later.\n" +
@@ -83,9 +84,9 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [x].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
                 "\n" +
-                "Good Bye!\n"
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n"
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
@@ -102,24 +103,24 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
-                "\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
+                UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [abc].\n" +
-                "This is not a valid menu option. Please try again.\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [abc].\n" +
+                UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n" +
                 "\n"+
-                "This is the Main Menu.\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "" +
                 "\n" +
-                "You selected option [x].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
                 "\n" +
-                "Good Bye!\n";
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -143,13 +144,13 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [b].\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [b].\n" +
                 "\n" +
                 "Here are the books in our library:\n" +
                 "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -160,9 +161,9 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
                 "\n" +
                 "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [x].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
                 "\n" +
-                "Good Bye!\n";
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -186,13 +187,13 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [m].\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -203,9 +204,9 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [x].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
                 "\n" +
-                "Good Bye!\n";
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -229,13 +230,13 @@ public class CommandLineAppTest {
 
 //        Assert
         String actualOutput = outContent.toString();
-        String expectedOutput = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!\n" +
-                "This is the Main Menu.\n" +
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
-                "Please type an option from the Navigation Bar and then hit Enter:\n" +
-                "You selected option [m].\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -246,7 +247,7 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [2].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [2].\n" +
                 "\"Matrix\" is checked out.\n" +
                 "Thank you! Enjoy the movie.\n" +
                 "\n" +
@@ -258,7 +259,7 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [rm].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [rm].\n" +
                 "\n" +
                 "Here are movies, that you can return:\n" +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -267,7 +268,7 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [1].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [1].\n" +
                 "\"Matrix\" has been returned.\n" +
                 "Thank you for returning the movie!\n" +
                 "\n" +
@@ -277,7 +278,7 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [m].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
@@ -288,9 +289,9 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                "You selected option [x].\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
                 "\n" +
-                "Good Bye!\n";
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 }

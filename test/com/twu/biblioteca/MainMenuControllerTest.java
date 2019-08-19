@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.controllers.MainMenuController;
 import com.twu.biblioteca.views.MainMenuView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
 import org.junit.Assert;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class MainMenuControllerTest {
         View actualView = mainMenuController.getNextView();
 
 //        Assert
-        String expectedOutput = "This is not a valid menu option. Please try again.\n";
+        String expectedOutput = UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n";
         View expectedView = MainMenuView.getInstance();
         Assert.assertThat(actualOutput, is(expectedOutput));
         Assert.assertThat(actualView, is(expectedView));

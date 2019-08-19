@@ -14,7 +14,7 @@ public class QuitView extends View {
     }
 
     public InteractiveView enter(IOHandler ioHandler) {
-        ioHandler.println("Good Bye!");
+        ioHandler.println(UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "");
         return null;
     }
 }

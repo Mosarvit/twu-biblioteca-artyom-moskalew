@@ -63,7 +63,7 @@ public class BrowseBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [x].\n\n";
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -97,7 +97,7 @@ public class BrowseBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [1].\n" +
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [1].\n" +
                         "\"Anna Karenina\" is checked out.\n" +
                         "Thank you! Enjoy the book.\n" +
                         "\n"
@@ -135,7 +135,7 @@ public class BrowseBooksViewTest {
                         UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
-                        "You selected option [4].\n" +
+                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [4].\n" +
                         "Sorry, that book is not available. Please try again.\n" +
                         "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));

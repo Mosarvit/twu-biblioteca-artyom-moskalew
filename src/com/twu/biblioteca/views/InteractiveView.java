@@ -14,7 +14,7 @@ public abstract class InteractiveView extends View {
         ioHandler.println(this.controller.getRequestInputMessage());
 
         String userSelectedOptionString = ioHandler.getNextInputLine();
-        ioHandler.println("You selected option [" + userSelectedOptionString + "].");
+        ioHandler.println(UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [" + userSelectedOptionString + "].");
 
         ioHandler.println(this.controller.processUserInput(userSelectedOptionString));
 
