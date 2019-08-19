@@ -17,4 +17,5 @@ public class UI_GLOBALS {
     public static final String MAIN_MENU_INVALID_USER_INPUT_MESSAGE = "This is not a valid menu option. Please try again.";
     public static final String BIBLIOTECA_WELCOME_MESSAGE = "Welcome to Biblioteca. Your one-stop-shop for great book titles in Bangalore!";
     public static final String BIBLIOTECA_GOOD_BYE_MESSAGE = "Good Bye!";
+    public static final String LOG_IN_VIEW_REQUEST_INPUT_MESSAGE = MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
 }
