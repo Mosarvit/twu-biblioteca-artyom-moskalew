@@ -10,7 +10,7 @@ public class Session {
         return loggedInUser;
     }
 
-    public static boolean getUserIsLoggedIn() {
+    public static boolean userIsLoggedIn() {
         return loggedInUser != null;
     }
 
@@ -23,7 +23,7 @@ public class Session {
     }
 
     public static boolean currenUserIsAdmin() {
-        if (!getUserIsLoggedIn()){
+        if (!userIsLoggedIn()){
             return false;
         }
         return loggedInUser.getLibraryName().equals(admin.getLibraryName());

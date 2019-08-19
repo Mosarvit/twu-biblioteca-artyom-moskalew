@@ -14,11 +14,13 @@ public abstract class InteractiveViewController extends Controller {
     protected String onSuccessMessagePart;
     protected String thankYouMessage;
     protected String wrongNumberSelectedMessage;
-    protected String requestInputMessage;
+    protected String requestLoggedInUserInputMessage;
     protected MediaSelection mediaSelection;
     protected String emptyListMessage;
     protected View correspondingView;
     protected View nextView;
+    protected String sorryLogInFirstMessage = UI_GLOBALS.BROWSE_VIEW_SORRY_LOG_IN_FIRST;
+    private String requestLoggedOutUserInputMessage = UI_GLOBALS.REQUEST_NAVIGATION_BAR_SELECTION_MESSAGE;
 
 
     public String applyActionToBook(Media bookSelectedForCheckOut) {
@@ -40,8 +42,13 @@ public abstract class InteractiveViewController extends Controller {
         return response;
     }
 
-    public String getRequestInputMessage() {
-        return this.requestInputMessage;
+    public String getRequesUserInputMessage() {
+        if(Session.userIsLoggedIn()){
+            return this.requestLoggedInUserInputMessage;
+        }else{
+            return this.requestLoggedOutUserInputMessage;
+        }
+
     }
 
     public String getNavigationBarString() {
@@ -49,26 +56,21 @@ public abstract class InteractiveViewController extends Controller {
     }
 
     public String getTitle() {
+
         return this.viewHeader;
     }
 
-    public String processUserInput(String userSelectedOptionString) {
-        String response = "";
-
-        if (userSelectedNavigationBarOption(userSelectedOptionString)) {
-            this.nextView = NavigationBar.getInstance().processValidUserInput(userSelectedOptionString);
-        } else {
-            response += processBodyInteractionInput(userSelectedOptionString);
-        }
-        return response;
-    }
+    public abstract String processUserInput(String userSelectedOptionString);
 
     protected boolean userSelectedNavigationBarOption(String userSelectedOptionString) {
         return NavigationBar.getInstance().hasOption(userSelectedOptionString);
     }
 
-    private String processBodyInteractionInput(String userSelectedOptionString) {
+    public String processBodyInteractionInput(String userSelectedOptionString) {
         String response = "";
+        if(!Session.userIsLoggedIn()){
+            return this.sorryLogInFirstMessage;
+        }
         if (isNumeric(userSelectedOptionString)) {
             response += processNumericalInput(userSelectedOptionString);
             this.nextView = this.correspondingView;
@@ -85,7 +87,9 @@ public abstract class InteractiveViewController extends Controller {
     }
 
     public View getNextView() {
-        return this.nextView;
+        View tempView = this.nextView;
+        this.nextView = this.correspondingView;
+        return tempView;
     }
 
     public String getBody() {

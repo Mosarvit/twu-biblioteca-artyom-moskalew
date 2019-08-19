@@ -90,4 +90,28 @@ public class BrowseBooksControllerTest {
         String expectedOutput = "";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
+
+    @Test
+    public void processBodyInteractionInput() {
+//         Arrange
+        BrowseBooksController browseBooksController = new BrowseBooksController(BrowseBooksView.getInstance());
+
+        Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
+        Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
+        Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
+
+        Database.add(bookAnnaKarenina);
+        Database.add(bookWalden);
+        Database.add(bookAgileSoftwareDevelopment);
+
+//         Act
+        String actualOutput = browseBooksController.processBodyInteractionInput("1");
+        String actualRequestInputMessage = browseBooksController.getRequesUserInputMessage();
+
+//        Assert
+        String expectedOutput = UI_GLOBALS.BROWSE_VIEW_SORRY_LOG_IN_FIRST;
+        String expectedRequestInputMessage = UI_GLOBALS.REQUEST_NAVIGATION_BAR_SELECTION_MESSAGE;
+        Assert.assertThat(actualOutput, is(expectedOutput));
+        Assert.assertThat(actualRequestInputMessage, is(expectedRequestInputMessage));
+    }
 }

@@ -12,7 +12,7 @@ public abstract class InteractiveView extends View {
         ioHandler.print(UI_GLOBALS.LINE_BREAK);
         ioHandler.println(this.controller.getBody());
         ioHandler.println(this.controller.getNavigationBarString());
-        ioHandler.println(this.controller.getRequestInputMessage());
+        ioHandler.println(this.controller.getRequesUserInputMessage());
 
         String userSelectedOptionString = ioHandler.getNextInputLine();
         ioHandler.println(UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [" + userSelectedOptionString + "].");

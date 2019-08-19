@@ -27,5 +27,7 @@ public class UI_GLOBALS {
     public static final String MAIN_MENU_LOGGED_OUT_USER_MESSAGE = "You are currently logged out. Please log in to check out or return media";
     public static final String NAVIGATION_BAR_LOG_IN_LABEL = "Log in";
     public static final String NAVIGATION_BAR_USER_LOG_OUT_LABEL = "Log out";
-    public static final Object MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART = "You are logged in as ";
+    public static final String MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART = "You are logged in as ";
+    public static final String BROWSE_VIEW_SORRY_LOG_IN_FIRST = "Sorry, you cannot check out this book. You need to log in first";
+    public static final String REQUEST_NAVIGATION_BAR_SELECTION_MESSAGE = MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
 }

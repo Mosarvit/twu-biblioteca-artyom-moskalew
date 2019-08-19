@@ -4,20 +4,21 @@ import com.twu.biblioteca.Session;
 import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
+import com.twu.biblioteca.views.parts.NavigationBar;
 
 import java.util.ArrayList;
 
 public class MainMenuController extends InteractiveViewController {
     public MainMenuController(View view) {
         this.viewHeader = UI_GLOBALS.MAIN_MENU_VIEW_HEADER;
-        this.requestInputMessage = UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
+        this.requestLoggedInUserInputMessage = UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
         this.nextView = view;
         this.correspondingView = view;
     }
 
     public String getBody() {
         String body = "";
-        if(Session.getUserIsLoggedIn()){
+        if(Session.userIsLoggedIn()){
             return UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + Session.getLoggedInUser().getLibraryName() + UI_GLOBALS.LINE_BREAK;
         }else{
             return UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE+UI_GLOBALS.LINE_BREAK;
@@ -26,5 +27,16 @@ public class MainMenuController extends InteractiveViewController {
 
     protected String printTableForAdmin(ArrayList<Media> checkOutableMedias) {
         return null;
+    }
+
+    public String processUserInput(String userSelectedOptionString) {
+        String response = "";
+
+        if (userSelectedNavigationBarOption(userSelectedOptionString)) {
+            this.nextView = NavigationBar.getInstance().processValidUserInput(userSelectedOptionString);
+        } else {
+            response += UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE;
+        }
+        return response;
     }
 }

@@ -35,7 +35,6 @@ public class ReturnMoviesControllerTest {
 
     }
 
-    @Ignore
     @Test
     public void processNumericalInputTest() {
         // Arrange

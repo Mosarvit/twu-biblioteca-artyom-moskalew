@@ -22,7 +22,7 @@ public class MainMenuControllerTest {
         View actualView = mainMenuController.getNextView();
 
 //        Assert
-        String expectedOutput = UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n";
+        String expectedOutput = UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE;
         View expectedView = MainMenuView.getInstance();
         Assert.assertThat(actualOutput, is(expectedOutput));
         Assert.assertThat(actualView, is(expectedView));

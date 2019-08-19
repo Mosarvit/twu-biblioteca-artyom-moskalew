@@ -1,13 +1,10 @@
 package com.twu.biblioteca.views.parts;
 
 import com.twu.biblioteca.Session;
-import com.twu.biblioteca.controllers.UserLogInController;
 import com.twu.biblioteca.views.*;
 
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class NavigationBar {
 
@@ -44,7 +41,7 @@ public class NavigationBar {
         navString += "Navigation Bar:  ";
 
         LinkedHashMap<String, View> menuOptionsHM = loggedOutUserMenuOptionsHM;
-        if(Session.getUserIsLoggedIn()){
+        if(Session.userIsLoggedIn()){
             menuOptionsHM = loggedInUserMenuOptionsHM;
         }
 

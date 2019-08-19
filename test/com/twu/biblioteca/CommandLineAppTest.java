@@ -18,17 +18,19 @@ import static org.hamcrest.core.Is.is;
 
 public class CommandLineAppTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private  ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
     private final InputStream originalIn = System.in;
 
     @Before
     public void setUpStreams() {
+        outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }
 
     @After
     public void restoreStreams() {
+
         System.setOut(originalOut);
         System.setIn(originalIn);
         Database.clear();
@@ -59,6 +61,43 @@ public class CommandLineAppTest {
                 UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + UI_GLOBALS.LINE_BREAK
                 ;
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void startWrongOptionChosen2Test()  {
+//         Arrange
+        System.setIn(new ByteArrayInputStream("abc\nx\n".getBytes()));
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        Session.setLoggedInUser(new User("123-4567", "password1"));
+
+//         Act
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
+                UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
+                "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [abc].\n" +
+                UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
+                "\n" +
+                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
+                "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "" +
+                "\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
+                "\n" +
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
@@ -99,43 +138,6 @@ public class CommandLineAppTest {
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
-    @Test
-    public void startWrongOptionChosen2Test() throws AWTException {
-//         Arrange
-        System.setIn(new ByteArrayInputStream("abc\nx\n".getBytes()));
-        IOHandler iOHandler = new IOHandler();
-        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
-        Session.setLoggedInUser(new User("123-4567", "password1"));
-
-//         Act
-        commandLineApp.start();
-
-//        Assert
-        String actualOutput = outContent.toString();
-        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
-                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
-                UI_GLOBALS.LINE_BREAK +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
-                UI_GLOBALS.LINE_BREAK +
-                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
-                "\n" +
-                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
-                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [abc].\n" +
-                UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n" +
-                "\n"+
-                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
-                "\n" +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
-                UI_GLOBALS.LINE_BREAK +
-                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
-                "\n" +
-                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "" +
-                "\n" +
-                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
-                "\n" +
-                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
-        Assert.assertThat(actualOutput, is(expectedOutput));
-    }
 
     @Test
     public void browseBooksTest() {
@@ -183,7 +185,6 @@ public class CommandLineAppTest {
                 UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
-
     @Test
     public void browseMoviesTest() {
 //         Arrange
@@ -231,7 +232,6 @@ public class CommandLineAppTest {
                 UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
-
     @Test
     public void checkOutThenReturnMovieTest() {
 //         Arrange
