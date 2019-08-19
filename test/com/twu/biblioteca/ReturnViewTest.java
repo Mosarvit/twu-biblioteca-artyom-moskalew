@@ -57,7 +57,7 @@ public class ReturnViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
@@ -93,7 +93,7 @@ public class ReturnViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
@@ -132,7 +132,7 @@ public class ReturnViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are books, that you can return:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +

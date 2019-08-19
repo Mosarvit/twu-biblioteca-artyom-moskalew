@@ -1,5 +1,6 @@
 package com.twu.biblioteca.views.helpers;
 
+import com.twu.biblioteca.UI_GLOBALS;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Model;
 import com.twu.biblioteca.models.Movie;
@@ -11,9 +12,9 @@ public class TablePrinter {
         String tableString = "";
 
         if(books.get(0).getClass() == Book.class){
-            tableString += "[INDEX] | Title | Author | Year Published\n";
+            tableString += "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n";
         }else if(books.get(0).getClass() == Movie.class){
-            tableString += "[INDEX] | Title | Director | Year Released\n";
+            tableString += "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n";
         }
 
         int indexCounter = 1;
@@ -24,7 +25,7 @@ public class TablePrinter {
             tableString += " | ";
 
             if(books.get(0).getClass() == Book.class){
-                tableString += model.getAuthor();
+                tableString += ((Book)model).getAuthor();
             }else if(books.get(0).getClass() == Movie.class){
                 tableString += ((Movie)model).getDirector();
             }

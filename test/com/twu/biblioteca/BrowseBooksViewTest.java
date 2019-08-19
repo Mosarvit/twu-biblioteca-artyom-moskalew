@@ -54,7 +54,7 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
@@ -88,7 +88,7 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
@@ -125,7 +125,7 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
-                        "[INDEX] | Title | Author | Year Published\n" +
+                        "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
