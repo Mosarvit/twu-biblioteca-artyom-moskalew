@@ -79,9 +79,10 @@ public class MainMenuViewTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput =
-                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER +UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.LINE_BREAK +
-                        UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.LINE_BREAK +
                         UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                         UI_GLOBALS.LINE_BREAK +

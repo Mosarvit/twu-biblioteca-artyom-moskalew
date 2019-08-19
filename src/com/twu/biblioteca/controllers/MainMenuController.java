@@ -18,10 +18,14 @@ public class MainMenuController extends InteractiveViewController {
 
     public String getBody() {
         String body = "";
-        if(Session.userIsLoggedIn()){
-            return UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + Session.getLoggedInUser().getLibraryName() + UI_GLOBALS.LINE_BREAK;
-        }else{
-            return UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE+UI_GLOBALS.LINE_BREAK;
+        if (Session.userIsLoggedIn()) {
+            return  UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + Session.getLoggedInUser().getLibraryName() +
+                    UI_GLOBALS.LINE_BREAK +
+                    UI_GLOBALS.MAIN_MENU_PASSWORD + Session.getLoggedInUser().getPassword() +
+                    UI_GLOBALS.LINE_BREAK
+                    ;
+        } else {
+            return UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE + UI_GLOBALS.LINE_BREAK;
         }
     }
 

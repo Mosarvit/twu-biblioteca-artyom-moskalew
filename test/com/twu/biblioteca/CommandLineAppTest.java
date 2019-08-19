@@ -80,7 +80,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 UI_GLOBALS.LINE_BREAK +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
@@ -89,7 +90,8 @@ public class CommandLineAppTest {
                 UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
@@ -117,7 +119,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 UI_GLOBALS.LINE_BREAK +
@@ -163,7 +166,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
@@ -210,7 +214,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
@@ -256,7 +261,8 @@ public class CommandLineAppTest {
         String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
                 UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
                 "\n" +
-                UI_GLOBALS.MAIN_MENU_LOGGED_IN_USER_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
                 UI_GLOBALS.LINE_BREAK +
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
@@ -307,6 +313,56 @@ public class CommandLineAppTest {
                 UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                 "\n" +
                 "Please type the number of the movie you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
+                "\n" +
+                "Here are the movies in our library:\n" +
+                UI_GLOBALS.LINE_BREAK +
+                "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
+                "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
+                "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
+                "[3] | The Godfather | Francis Ford Coppola | 1972\n"+
+                "\n" +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
+                "\n" +
+                "Please type the number of the movie you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
+                UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n" +
+                "\n" +
+                UI_GLOBALS.BIBLIOTECA_GOOD_BYE_MESSAGE + "\n";
+        Assert.assertThat(actualOutput, is(expectedOutput));
+    }
+
+    @Test
+    public void logInTest() {
+//         Arrange
+        System.setIn(new ByteArrayInputStream("li\n123-4567\npassword1\n".getBytes()));
+        IOHandler iOHandler = new IOHandler();
+        CommandLineApp commandLineApp = new CommandLineApp(iOHandler);
+        User user1 = new User("123-4567", "password1");
+
+        Database.add(user1);
+
+        Movie movieForrestGump = new Movie("Forrest Gump", "Robert Zemeckis", 1994);
+        Movie movieMatrix = new Movie("Matrix", "Lana Wachowski, Lilly Wachowski", 1999);
+        Movie movieTheGodfather = new Movie("The Godfather", "Francis Ford Coppola", 1972);
+
+        Database.add(movieForrestGump);
+        Database.add(movieMatrix);
+        Database.add(movieTheGodfather);
+
+//         Act
+        commandLineApp.start();
+
+//        Assert
+        String actualOutput = outContent.toString();
+        String expectedOutput = UI_GLOBALS.BIBLIOTECA_WELCOME_MESSAGE + "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_HEADER + "\n" +
+                "\n" +
+                UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + "123-4567" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.MAIN_MENU_PASSWORD + "password1" + UI_GLOBALS.LINE_BREAK +
+                UI_GLOBALS.LINE_BREAK +
+                UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
+                "\n" +
+                UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
                 UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [m].\n" +
                 "\n" +
                 "Here are the movies in our library:\n" +

@@ -13,7 +13,7 @@ public class NavigationBar {
     private LinkedHashMap<String, View> loggedOutUserMenuOptionsHM = new LinkedHashMap<String, View>();
 
     private NavigationBar() {
-        this.loggedInUserMenuOptionsHM.put("h", MainMenuView.getInstance());
+        this.loggedInUserMenuOptionsHM.put("a", MainMenuView.getInstance());
         this.loggedInUserMenuOptionsHM.put("b", BrowseBooksView.getInstance());
         this.loggedInUserMenuOptionsHM.put("rb", ReturnBooksView.getInstance());
         this.loggedInUserMenuOptionsHM.put("m", BrowseMoviesView.getInstance());
@@ -21,7 +21,7 @@ public class NavigationBar {
         this.loggedInUserMenuOptionsHM.put("lo", UserLogOutView.getInstance());
         this.loggedInUserMenuOptionsHM.put("x", QuitView.getInstance());
 
-        this.loggedOutUserMenuOptionsHM.put("h", MainMenuView.getInstance());
+        this.loggedOutUserMenuOptionsHM.put("a", MainMenuView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("b", BrowseBooksView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("m", BrowseMoviesView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("li", UserLogInView.getInstance());
@@ -29,7 +29,12 @@ public class NavigationBar {
     }
 
     public boolean hasOption(String optionString) {
-        return this.loggedInUserMenuOptionsHM.containsKey(optionString);
+        if(Session.userIsLoggedIn()){
+            return this.loggedInUserMenuOptionsHM.containsKey(optionString);
+        }else{
+            return this.loggedOutUserMenuOptionsHM.containsKey(optionString);
+        }
+
     }
 
     public static NavigationBar getInstance() {
@@ -38,7 +43,7 @@ public class NavigationBar {
 
     public String toString() {
         String navString = "";
-        navString += "Navigation Bar:  ";
+        navString += "Navigation Bar:" + UI_GLOBALS.LINE_BREAK;
 
         LinkedHashMap<String, View> menuOptionsHM = loggedOutUserMenuOptionsHM;
         if(Session.userIsLoggedIn()){
@@ -46,15 +51,16 @@ public class NavigationBar {
         }
 
         for (Map.Entry<String, View> entry : menuOptionsHM.entrySet()) {
-            navString += "[" + entry.getKey() + "] " + entry.getValue().getViewName() + " ";
+            navString += "[" + entry.getKey() + "] " + entry.getValue().getViewName() + UI_GLOBALS.LINE_BREAK;
         }
-
-        navString += "\n";
         return navString;
     }
 
     public View processValidUserInput(String viewKey) {
-
-        return this.loggedInUserMenuOptionsHM.get(viewKey);
+        if(Session.userIsLoggedIn()){
+            return this.loggedInUserMenuOptionsHM.get(viewKey);
+        }else{
+            return this.loggedOutUserMenuOptionsHM.get(viewKey);
+        }
     }
 }
