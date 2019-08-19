@@ -37,6 +37,9 @@ public class UserLogInController extends Controller {
     public String processUserNamePassworCombiantion(String userName, String password) {
         User user = Database.selectUserWhereUsernameEquals(userName);
         this.nextView = MainMenuView.getInstance();
+        if(user == null){
+            return this.failedLogInMessage;
+        }
         if(user.getPassword().equals(password)){
             return this.successfulLogInMessage + userName;
         }else{
