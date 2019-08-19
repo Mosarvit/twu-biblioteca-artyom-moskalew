@@ -1,14 +1,14 @@
 package com.twu.biblioteca.views;
 
 import com.twu.biblioteca.IOHandler;
-import com.twu.biblioteca.controllers.MainMenuController;
+import com.twu.biblioteca.controllers.AccountInfoController;
 
-public class MainMenuView extends InteractiveView {
-    private static final MainMenuView mainMenuView_singleton = new MainMenuView();
+public class AccountInfoView extends InteractiveView {
+    private static final AccountInfoView ACCOUNT_INFO_VIEW___SINGLETON = new AccountInfoView();
 
-    private MainMenuView() {
-        this.viewName = UI_GLOBALS.NAVIGATION_BAR_LABELS_MAIN_MENU;
-        this.controller = new MainMenuController(this);
+    private AccountInfoView() {
+        this.viewName = UI_GLOBALS.NAVIGATION_BAR_LABELS_ACCOUNT_INFO;
+        this.controller = new AccountInfoController(this);
     }
 
     public View enter(IOHandler ioHandler){
@@ -27,7 +27,7 @@ public class MainMenuView extends InteractiveView {
         return this.controller.getNextView();
     }
 
-    public static MainMenuView getInstance() {
-        return mainMenuView_singleton;
+    public static AccountInfoView getInstance() {
+        return ACCOUNT_INFO_VIEW___SINGLETON;
     }
 }

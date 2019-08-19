@@ -75,7 +75,7 @@ public abstract class InteractiveViewController extends Controller {
             response += processNumericalInput(userSelectedOptionString);
             this.nextView = this.correspondingView;
         } else {
-            response += UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE;
+            response += UI_GLOBALS.ACCOUNT_INFO_INVALID_USER_INPUT_MESSAGE;
             this.nextView = this.correspondingView;
         }
         response += "\n";

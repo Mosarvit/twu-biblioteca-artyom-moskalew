@@ -8,10 +8,10 @@ import com.twu.biblioteca.views.parts.NavigationBar;
 
 import java.util.ArrayList;
 
-public class MainMenuController extends InteractiveViewController {
-    public MainMenuController(View view) {
-        this.viewHeader = UI_GLOBALS.MAIN_MENU_VIEW_HEADER;
-        this.requestLoggedInUserInputMessage = UI_GLOBALS.MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
+public class AccountInfoController extends InteractiveViewController {
+    public AccountInfoController(View view) {
+        this.viewHeader = UI_GLOBALS.ACCOUNT_INFO_VIEW_HEADER;
+        this.requestLoggedInUserInputMessage = UI_GLOBALS.ACCOUNT_INFO_VIEW_REQUEST_INPUT_MESSAGE;
         this.nextView = view;
         this.correspondingView = view;
     }
@@ -19,13 +19,13 @@ public class MainMenuController extends InteractiveViewController {
     public String getBody() {
         String body = "";
         if (Session.userIsLoggedIn()) {
-            return  UI_GLOBALS.MAIN_MENU_LIBRARY_NAME + Session.getLoggedInUser().getLibraryName() +
+            return  UI_GLOBALS.ACCOUNT_INFO_LIBRARY_NAME + Session.getLoggedInUser().getLibraryName() +
                     UI_GLOBALS.LINE_BREAK +
-                    UI_GLOBALS.MAIN_MENU_PASSWORD + Session.getLoggedInUser().getPassword() +
+                    UI_GLOBALS.ACCOUNT_INFO_PASSWORD + Session.getLoggedInUser().getPassword() +
                     UI_GLOBALS.LINE_BREAK
                     ;
         } else {
-            return UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE + UI_GLOBALS.LINE_BREAK;
+            return UI_GLOBALS.ACCOUNT_INFO_LOGGED_OUT_USER_MESSAGE + UI_GLOBALS.LINE_BREAK;
         }
     }
 
@@ -39,7 +39,7 @@ public class MainMenuController extends InteractiveViewController {
         if (userSelectedNavigationBarOption(userSelectedOptionString)) {
             this.nextView = NavigationBar.getInstance().processValidUserInput(userSelectedOptionString);
         } else {
-            response += UI_GLOBALS.MAIN_MENU_INVALID_USER_INPUT_MESSAGE;
+            response += UI_GLOBALS.ACCOUNT_INFO_INVALID_USER_INPUT_MESSAGE;
         }
         return response;
     }

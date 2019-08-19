@@ -13,7 +13,7 @@ public class NavigationBar {
     private LinkedHashMap<String, View> loggedOutUserMenuOptionsHM = new LinkedHashMap<String, View>();
 
     private NavigationBar() {
-        this.loggedInUserMenuOptionsHM.put("a", MainMenuView.getInstance());
+        this.loggedInUserMenuOptionsHM.put("a", AccountInfoView.getInstance());
         this.loggedInUserMenuOptionsHM.put("b", BrowseBooksView.getInstance());
         this.loggedInUserMenuOptionsHM.put("rb", ReturnBooksView.getInstance());
         this.loggedInUserMenuOptionsHM.put("m", BrowseMoviesView.getInstance());
@@ -21,7 +21,7 @@ public class NavigationBar {
         this.loggedInUserMenuOptionsHM.put("lo", UserLogOutView.getInstance());
         this.loggedInUserMenuOptionsHM.put("x", QuitView.getInstance());
 
-        this.loggedOutUserMenuOptionsHM.put("a", MainMenuView.getInstance());
+        this.loggedOutUserMenuOptionsHM.put("a", AccountInfoView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("b", BrowseBooksView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("m", BrowseMoviesView.getInstance());
         this.loggedOutUserMenuOptionsHM.put("li", UserLogInView.getInstance());
