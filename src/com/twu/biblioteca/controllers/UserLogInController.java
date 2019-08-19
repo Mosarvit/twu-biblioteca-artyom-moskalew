@@ -1,5 +1,7 @@
 package com.twu.biblioteca.controllers;
 
+import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.MainMenuView;
 import com.twu.biblioteca.views.QuitView;
 import com.twu.biblioteca.views.UI_GLOBALS;
@@ -12,6 +14,7 @@ public class UserLogInController extends Controller {
     private String requestUsernameMessage = UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_USERNAME;
     private String requestPasswordMessage = UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_PASSWORD;
     private String successfulLogInMessage = UI_GLOBALS.USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART;
+    private String failedLogInMessage = UI_GLOBALS.USER_LOG_IN_VIEW_FAILED_LOG_IN_MESSAGE;
 
     public UserLogInController(View view) {
 
@@ -32,8 +35,13 @@ public class UserLogInController extends Controller {
     }
 
     public String processUserNamePassworCombiantion(String userName, String password) {
+        User user = Database.selectUserWhereUsernameEquals(userName);
         this.nextView = MainMenuView.getInstance();
-        return this.successfulLogInMessage + userName;
+        if(user.getPassword().equals(password)){
+            return this.successfulLogInMessage + userName;
+        }else{
+            return this.failedLogInMessage;
+        }
     }
 
     public View getNextView() {

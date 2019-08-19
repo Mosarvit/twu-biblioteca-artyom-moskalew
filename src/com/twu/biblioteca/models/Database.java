@@ -83,4 +83,18 @@ public class Database {
         }
         return allBooksWhereCheckedOutIsFalse;
     }
+
+    public static User selectUserWhereUsernameEquals(String userName) {
+        String tableName = "UserTable";
+        if (!tables.containsKey(tableName)) {
+            return null;
+        }
+        for (Model model : tables.get(tableName)) {
+            User user = ((User)model);
+            if (user.getUserName().equals(userName)) {
+                return user;
+            }
+        }
+        return null;
+    }
 }
