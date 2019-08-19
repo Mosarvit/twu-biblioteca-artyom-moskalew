@@ -12,6 +12,6 @@ public class MainMenuController extends InteractiveViewController {
     }
 
     public String getBody() {
-        return "";
+        return UI_GLOBALS.MAIN_MENU_LOGGED_OUT_USER_MESSAGE;
     }
 }

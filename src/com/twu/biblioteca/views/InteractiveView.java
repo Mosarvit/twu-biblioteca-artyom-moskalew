@@ -9,7 +9,9 @@ public abstract class InteractiveView extends View {
     public View enter(IOHandler ioHandler){
 
         ioHandler.println(this.controller.getTitle());
+        ioHandler.print(UI_GLOBALS.LINE_BREAK);
         ioHandler.println(this.controller.getBody());
+        ioHandler.print(UI_GLOBALS.LINE_BREAK);
         ioHandler.println(this.controller.getNavigationBarString());
         ioHandler.println(this.controller.getRequestInputMessage());
 

@@ -89,11 +89,12 @@ public class BrowseBooksViewTest {
         String actualOutput = outContent.toString();
         String expectedOutput =
                 "Here are the books in our library:\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         "[INDEX] | Title | Author | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
-                        "\n" +
+                        UI_GLOBALS.LINE_BREAK +
                         UI_TEST_GLOBALS.LOGGED_IN_USER_NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +

@@ -32,7 +32,6 @@ public class TablePrinter {
 
             tableString += " | ";
             tableString += media.getYearReleased();
-            tableString += "\n";
             indexCounter++;
         }
         return tableString;
