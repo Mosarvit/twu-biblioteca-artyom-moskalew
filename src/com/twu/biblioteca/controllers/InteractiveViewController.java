@@ -8,7 +8,7 @@ import com.twu.biblioteca.views.parts.NavigationBar;
 
 import java.util.ArrayList;
 
-public abstract class InteractiveViewController implements Controller {
+public abstract class InteractiveViewController extends Controller {
     protected MediaAction mediaAction;
     protected String onSuccessMessagePart;
     protected String thankYouMessage;
@@ -16,7 +16,6 @@ public abstract class InteractiveViewController implements Controller {
     protected String requestInputMessage;
     protected MediaSelection mediaSelection;
     protected String emptyListMessage;
-    protected String viewTitle;
     protected View correspondingView;
     protected View nextView;
 
@@ -49,7 +48,7 @@ public abstract class InteractiveViewController implements Controller {
     }
 
     public String getTitle() {
-        return this.viewTitle;
+        return this.viewHeader;
     }
 
     public String processUserInput(String userSelectedOptionString) {

@@ -7,7 +7,7 @@ public class ReturnBooksController extends InteractiveViewController {
     public ReturnBooksController(View view){
         this.mediaAction = book -> book.returnBook();
         this.mediaSelection = () -> Database.selectAllBooksWhereCheckedOutIsTrue();
-        this.viewTitle = "Here are books, that you can return:";
+        this.viewHeader = "Here are books, that you can return:";
         this.onSuccessMessagePart = "has been returned";
         this.wrongNumberSelectedMessage = "That is not a valid book to return. Please try again.";
         this.thankYouMessage = "Thank you for returning the book!";

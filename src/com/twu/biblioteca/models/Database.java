@@ -4,22 +4,24 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Database {
-    private static final HashMap<String, ArrayList<Media>> tables = new HashMap<>();
+    private static final HashMap<String, ArrayList<Model>> tables = new HashMap<>();
 
-    public static void add(Media media) {
+    public static void add(Model model) {
 
         String tableName = "BookTable";
 
-        if (media.getClass() == Book.class){
+        if (model.getClass() == Book.class){
             tableName = "BookTable";
-        }else if(media.getClass() == Movie.class){
+        }else if(model.getClass() == Movie.class){
             tableName = "MovieTable";
+        }else if(model.getClass() == User.class){
+            tableName = "UserTable";
         }
 
         if (!tables.containsKey(tableName)) {
-            tables.put(tableName, new ArrayList<Media>());
+            tables.put(tableName, new ArrayList<Model>());
         }
-        tables.get(tableName).add(media);
+        tables.get(tableName).add(model);
     }
 
     public static void clear() {
@@ -30,7 +32,8 @@ public class Database {
         String tableName = "BookTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Media media : tables.get(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
                 if (!media.isCheckedOut()) {
                     allBooksWhereCheckedOutIsFalse.add(media);
                 }
@@ -43,7 +46,8 @@ public class Database {
         String tableName = "BookTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Media media : tables.get(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
                 if (media.isCheckedOut()) {
                     allBooksWhereCheckedOutIsFalse.add(media);
                 }
@@ -56,7 +60,8 @@ public class Database {
         String tableName = "MovieTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Media media : tables.get(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
                 if (!media.isCheckedOut()) {
                     allBooksWhereCheckedOutIsFalse.add(media);
                 }
@@ -69,7 +74,8 @@ public class Database {
         String tableName = "MovieTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Media media : tables.get(tableName)) {
+            for (Model model : tables.get(tableName)) {
+                Media media = ((Media)model);
                 if (media.isCheckedOut()) {
                     allBooksWhereCheckedOutIsFalse.add(media);
                 }

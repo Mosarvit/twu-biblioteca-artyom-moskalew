@@ -7,7 +7,7 @@ public class BrowseMoviesController extends InteractiveViewController {
     public BrowseMoviesController(View view){
         this.mediaAction = media -> media.checkOut();
         this.mediaSelection = () -> Database.selectAllMoviesWhereCheckedOutIsFalse();
-        this.viewTitle = "Here are the movies in our library:";
+        this.viewHeader = "Here are the movies in our library:";
         this.onSuccessMessagePart = "is checked out";
         this.wrongNumberSelectedMessage = "Sorry, that movie is not available. Please try again.";
         this.thankYouMessage = "Thank you! Enjoy the movie.";

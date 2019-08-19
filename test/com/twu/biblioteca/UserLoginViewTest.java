@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
-import com.twu.biblioteca.views.BrowseBooksView;
+import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.UI_GLOBALS;
+import com.twu.biblioteca.views.UserLogInView;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -39,11 +39,11 @@ public class UserLoginViewTest {
     @Test
     public void listBooksAndQuit1Test() {
 //         Arrange
-        System.setIn(new ByteArrayInputStream("user1\npassword1\nx\n".getBytes()));
+        System.setIn(new ByteArrayInputStream("username1\npassword1\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         UserLogInView userLogInView = UserLogInView.getInstance();
 
-        User user1 = new User("user1", "password1");
+        User user1 = new User("username1", "password1");
 
         Database.add(user1);
 
@@ -53,15 +53,12 @@ public class UserLoginViewTest {
 //        Assert
         String actualOutput = outContent.toString();
         String expectedOutput =
-                "Login to your account\n" +
-                        "\n" +
-                        "Please enter your username\n" +
-                        "Please enter your password\n" +
-                        "You successfully logged in as user1\n" +
-                        "\n" +
-                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING  +
-                        UI_GLOBALS.LOG_IN_VIEW_REQUEST_INPUT_MESSAGE + "\n" +
-                        UI_GLOBALS.YOU_SELECTED_MESSAGE_PART + " [x].\n\n";
+                UI_GLOBALS.USER_LOG_IN_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_USERNAME + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_PASSWORD + UI_GLOBALS.LINE_BREAK +
+                        UI_GLOBALS.USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART + "username1" + UI_GLOBALS.LINE_BREAK
+                ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 

@@ -1,4 +1,6 @@
 package com.twu.biblioteca.controllers;
 
-public interface Controller {
+public abstract class Controller {
+    protected String viewHeader;
+
 }
