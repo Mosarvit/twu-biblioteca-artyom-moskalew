@@ -70,6 +70,8 @@ public class BrowseBooksViewTest {
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
+
+
     @Test
     public void listBooksAndCheckOutTest() {
 //         Arrange
@@ -113,6 +115,8 @@ public class BrowseBooksViewTest {
         Assert.assertThat(actualHolder, is(expectedHodler));
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
+
+
 
     @Test
     public void listBooksAndCheckOutChoiceTooHighTest() {

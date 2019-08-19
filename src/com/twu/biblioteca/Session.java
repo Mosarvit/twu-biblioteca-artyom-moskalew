@@ -23,6 +23,9 @@ public class Session {
     }
 
     public static boolean currenUserIsAdmin() {
-        return loggedInUser.getUserName().equals(admin.getUserName());
+        if (!getUserIsLoggedIn()){
+            return false;
+        }
+        return loggedInUser.getLibraryName().equals(admin.getLibraryName());
     }
 }

@@ -1,7 +1,11 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.views.View;
+import com.twu.biblioteca.views.helpers.TablePrinter;
+
+import java.util.ArrayList;
 
 public class ReturnMoviesController extends InteractiveViewController {
     public ReturnMoviesController(View view){
@@ -15,5 +19,9 @@ public class ReturnMoviesController extends InteractiveViewController {
         this.emptyListMessage = "There are currently no movies to return. You need to check out moviess first.";
         this.correspondingView = view;
         this.nextView = view;
+    }
+
+    protected String printTableForAdmin(ArrayList<Media> checkOutableMedias) {
+        return TablePrinter.getTableForAdminReturn(checkOutableMedias);
     }
 }

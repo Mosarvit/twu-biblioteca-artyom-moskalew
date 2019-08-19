@@ -19,6 +19,7 @@ public class ReturnMoviesControllerTest {
     public void restoreStreams() {
         Database.clear();
     }
+
     @Test
     public void applyActionToBookTest1() {
         // Arrange
@@ -30,7 +31,7 @@ public class ReturnMoviesControllerTest {
         String response = returnBooksController.applyActionToBook(movieForrestGump);
 
         // Assert
-        Assert.assertThat(response, is("\""+movieTitle+"\" has been returned."));
+        Assert.assertThat(response, is("\"" + movieTitle + "\" has been returned."));
 
     }
 
@@ -48,8 +49,7 @@ public class ReturnMoviesControllerTest {
 
         // Assert
         String expectedResponse = "\"Agile Software Development\" has been returned.\n" +
-                "Thank you for returning the book!"
-                ;
+                "Thank you for returning the book!";
         Assert.assertThat(response, is(expectedResponse));
     }
 
@@ -82,8 +82,7 @@ public class ReturnMoviesControllerTest {
 
         // Assert
         String expectedResponse1 = "[INDEX] | Title | Director | Release Year\n" +
-                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n"
-                ;
+                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n";
         Assert.assertThat(response1, is(expectedResponse1));
 
         // Act
@@ -92,8 +91,7 @@ public class ReturnMoviesControllerTest {
 
         // Assert
         String expectedResponse2 = "[INDEX] | Title | Director | Release Year\n" +
-                "[1] | The Godfather | Francis Ford Coppola | 1972\n"
-                ;
+                "[1] | The Godfather | Francis Ford Coppola | 1972\n";
         Assert.assertThat(response2, is(expectedResponse2));
 
         // Act
@@ -101,10 +99,9 @@ public class ReturnMoviesControllerTest {
         String response3 = returnMoviesController.getBody();
 
         // Assert
-        String expectedResponse3 = "[INDEX] | Title | Director | Release Year\n" +
-                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
-        "[2] | The Godfather | Francis Ford Coppola | 1972\n"
-                ;
+        String expectedResponse3 = "[INDEX] | Title | Director | Release Year | Holder Library Number\n" +
+                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999 | 123-4567\n" +
+                "[2] | The Godfather | Francis Ford Coppola | 1972 | 123-4568\n";
         Assert.assertThat(response3, is(expectedResponse3));
 
     }

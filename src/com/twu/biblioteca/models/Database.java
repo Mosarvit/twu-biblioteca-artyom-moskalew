@@ -93,7 +93,7 @@ public class Database {
         }
         for (Model model : tables.get(tableName)) {
             User user = ((User)model);
-            if (user.getUserName().equals(userName)) {
+            if (user.getLibraryName().equals(userName)) {
                 return user;
             }
         }

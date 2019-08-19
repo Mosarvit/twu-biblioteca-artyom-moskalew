@@ -1,7 +1,11 @@
 package com.twu.biblioteca.controllers;
 
 import com.twu.biblioteca.models.Database;
+import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.views.View;
+import com.twu.biblioteca.views.helpers.TablePrinter;
+
+import java.util.ArrayList;
 
 public class BrowseBooksController extends InteractiveViewController {
     public BrowseBooksController(View view){
@@ -17,5 +21,7 @@ public class BrowseBooksController extends InteractiveViewController {
         this.nextView = view;
     }
 
-
+    protected String printTableForAdmin(ArrayList<Media> checkOutableMedias) {
+        return TablePrinter.getTableForAdminBrowse(checkOutableMedias);
+    }
 }

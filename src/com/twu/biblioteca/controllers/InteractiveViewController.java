@@ -1,5 +1,6 @@
 package com.twu.biblioteca.controllers;
 
+import com.twu.biblioteca.Session;
 import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.views.View;
@@ -90,17 +91,21 @@ public abstract class InteractiveViewController extends Controller {
     public String getBody() {
         String tableString = "";
 
-        ArrayList<Media> checkOutableBooks = mediaSelection.selectMedia();
+        ArrayList<Media> checkOutableMedias = mediaSelection.selectMedia();
 
-        if (checkOutableBooks.isEmpty()) {
+        if (checkOutableMedias.isEmpty()) {
             tableString += this.emptyListMessage + UI_GLOBALS.LINE_BREAK ;
         } else {
-            tableString += TablePrinter.getTableAsString(checkOutableBooks);
+            if (Session.currenUserIsAdmin()){
+                tableString += printTableForAdmin(checkOutableMedias);
+            }else{
+                tableString += TablePrinter.getTableForUser(checkOutableMedias);
+            }
         }
-
         return tableString;
-
     }
+
+    protected abstract String printTableForAdmin(ArrayList<Media> checkOutableMedias) ;
 
 
     interface MediaAction {

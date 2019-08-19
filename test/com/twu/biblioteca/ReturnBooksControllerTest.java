@@ -100,9 +100,9 @@ public class ReturnBooksControllerTest {
         String response3 = returnBooksController.getBody();
 
         // Assert
-        String expectedResponse3 = "[INDEX] | Title | Author | Release Year\n" +
-                "[1] | Anna Karenina | Leo Tolstoy | 1877\n" +
-                "[2] | Walden | Henry David Thoreau | 1854\n"
+        String expectedResponse3 = "[INDEX] | Title | Author | Release Year | Holder Library Number\n" +
+                "[1] | Anna Karenina | Leo Tolstoy | 1877 | 123-4568\n" +
+                "[2] | Walden | Henry David Thoreau | 1854 | 123-4567\n"
                 ;
         Assert.assertThat(response3, is(expectedResponse3));
 

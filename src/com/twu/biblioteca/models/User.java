@@ -1,16 +1,16 @@
 package com.twu.biblioteca.models;
 
 public class User extends Model{
-    private  String username;
+    private  String libraryName;
     private  String password;
 
-    public User(String username, String password) {
-        this.username = username;
+    public User(String libraryName, String password) {
+        this.libraryName = libraryName;
         this.password = password;
     }
 
-    public String getUserName() {
-        return this.username;
+    public String getLibraryName() {
+        return this.libraryName;
     }
 
     public Object getPassword() { return this.password;
