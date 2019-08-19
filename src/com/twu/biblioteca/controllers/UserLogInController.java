@@ -1,5 +1,6 @@
 package com.twu.biblioteca.controllers;
 
+import com.twu.biblioteca.Session;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.User;
 import com.twu.biblioteca.views.MainMenuView;
@@ -34,13 +35,14 @@ public class UserLogInController extends Controller {
     public String getRequestPasswordMessage() { return this.requestPasswordMessage;
     }
 
-    public String processUserNamePassworCombiantion(String userName, String password) {
+    public String processUserNamePasswordCombination(String userName, String password) {
         User user = Database.selectUserWhereUsernameEquals(userName);
         this.nextView = MainMenuView.getInstance();
         if(user == null){
             return this.failedLogInMessage;
         }
         if(user.getPassword().equals(password)){
+            Session.setLoggedInUser(user);
             return this.successfulLogInMessage + userName;
         }else{
             return this.failedLogInMessage;

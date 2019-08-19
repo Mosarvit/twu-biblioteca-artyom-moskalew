@@ -1,8 +1,6 @@
 package com.twu.biblioteca.views;
 
 import com.twu.biblioteca.IOHandler;
-import com.twu.biblioteca.controllers.BrowseMoviesController;
-import com.twu.biblioteca.controllers.Controller;
 import com.twu.biblioteca.controllers.UserLogInController;
 
 public class UserLogInView extends View {
@@ -24,7 +22,7 @@ public class UserLogInView extends View {
         String userName = ioHandler.getNextInputLine();
         ioHandler.println(this.controller.getRequestPasswordMessage());
         String password = ioHandler.getNextInputLine();
-        ioHandler.println(this.controller.processUserNamePassworCombiantion(userName, password));
+        ioHandler.println(this.controller.processUserNamePasswordCombination(userName, password));
         return this.controller.getNextView();
     }
 }

@@ -34,6 +34,7 @@ public class UserLoginViewTest {
         System.setOut(originalOut);
         System.setIn(originalIn);
         Database.clear();
+        Session.clear();
     }
 
     @Test
@@ -52,6 +53,8 @@ public class UserLoginViewTest {
 
 //        Assert
         String actualOutput = outContent.toString();
+        User actualLoggedInUser = Session.getLoggedInUser();
+        User expectedLoggedInUser = user1;
         String expectedOutput =
                 UI_GLOBALS.USER_LOG_IN_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.LINE_BREAK +
@@ -60,6 +63,7 @@ public class UserLoginViewTest {
                         UI_GLOBALS.USER_LOG_IN_VIEW_SUCCESSFUL_LOG_IN_MESSAGE_PART + "123-4567" + UI_GLOBALS.LINE_BREAK
                 ;
         Assert.assertThat(actualOutput, is(expectedOutput));
+        Assert.assertThat(actualLoggedInUser, is(expectedLoggedInUser));
     }
 
     @Test
@@ -78,6 +82,8 @@ public class UserLoginViewTest {
 
 //        Assert
         String actualOutput = outContent.toString();
+        User actualLoggedInUser = Session.getLoggedInUser();
+        User expectedLoggedInUser = null;
         String expectedOutput =
                 UI_GLOBALS.USER_LOG_IN_VIEW_HEADER + UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.LINE_BREAK +
@@ -85,7 +91,9 @@ public class UserLoginViewTest {
                         UI_GLOBALS.USER_LOG_IN_VIEW_REQUEST_PASSWORD + UI_GLOBALS.LINE_BREAK +
                         UI_GLOBALS.USER_LOG_IN_VIEW_FAILED_LOG_IN_MESSAGE + UI_GLOBALS.LINE_BREAK
                 ;
+
         Assert.assertThat(actualOutput, is(expectedOutput));
+        Assert.assertThat(actualLoggedInUser, is(expectedLoggedInUser));
     }
 
     @Test

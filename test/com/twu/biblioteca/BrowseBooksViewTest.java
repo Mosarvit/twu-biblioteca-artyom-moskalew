@@ -76,7 +76,8 @@ public class BrowseBooksViewTest {
         System.setIn(new ByteArrayInputStream("1\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
         BrowseBooksView browseBooksView = BrowseBooksView.getInstance();
-        Session.setLoggedInUser(new User("123-4567", "password1"));
+        User user = new User("123-4567", "password1");
+        Session.setLoggedInUser(user);
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -91,6 +92,8 @@ public class BrowseBooksViewTest {
 
 //        Assert
         String actualOutput = outContent.toString();
+        User actualHolder = bookAnnaKarenina.getHodlder();
+        User expectedHodler = user;
         String expectedOutput =
                 "Here are the books in our library:\n" +
                         UI_GLOBALS.LINE_BREAK +
@@ -107,6 +110,7 @@ public class BrowseBooksViewTest {
                         "Thank you! Enjoy the book.\n" +
                         "\n"
                 ;
+        Assert.assertThat(actualHolder, is(expectedHodler));
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 
