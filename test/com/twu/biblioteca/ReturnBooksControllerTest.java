@@ -35,6 +35,8 @@ public class ReturnBooksControllerTest {
     @Test
     public void processNumericalInputTest() {
         // Arrange
+        User user1= new User("123-4567", "password1");
+        Session.setLoggedInUser(user1);
         Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
         Database.add(bookAgileSoftwareDevelopment);
         bookAgileSoftwareDevelopment.checkOut();

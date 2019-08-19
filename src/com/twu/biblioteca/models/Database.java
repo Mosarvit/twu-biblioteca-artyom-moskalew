@@ -102,6 +102,9 @@ public class Database {
 
 
     public static ArrayList<Media> selectAllCheckedOutMoviesVisibleToCurrentUser() {
+        if (Session.currenUserIsAdmin()){
+            return selectAllMoviesWhereCheckedOutIsTrue();
+        }
         String tableName = "MovieTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
@@ -116,6 +119,9 @@ public class Database {
     }
 
     public static ArrayList<Media> selectAllCheckedOutBooksVisibleToCurrentUser() {
+        if (Session.currenUserIsAdmin()){
+            return selectAllBooksWhereCheckedOutIsTrue();
+        }
         String tableName = "BookTable";
         ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {

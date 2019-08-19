@@ -64,6 +64,7 @@ public class ReturnMoviesControllerTest {
         Database.add(movieMatrix);
         Database.add(movieTheGodfather);
 
+        User admin = new User("111-1111", "adminPassword");
         User user1 = new User("123-4567", "password1");
         User user2 = new User("123-4568", "password1");
 
@@ -94,6 +95,17 @@ public class ReturnMoviesControllerTest {
                 "[1] | The Godfather | Francis Ford Coppola | 1972\n"
                 ;
         Assert.assertThat(response2, is(expectedResponse2));
+
+        // Act
+        Session.setLoggedInUser(admin);
+        String response3 = returnMoviesController.getBody();
+
+        // Assert
+        String expectedResponse3 = "[INDEX] | Title | Director | Release Year\n" +
+                "[1] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
+        "[2] | The Godfather | Francis Ford Coppola | 1972\n"
+                ;
+        Assert.assertThat(response3, is(expectedResponse3));
 
     }
 }
