@@ -18,6 +18,8 @@ public class UserLogOutView extends View {
     }
 
     public View enter(IOHandler ioHandler) {
-        return null;
+        ioHandler.println(this.controller.getViewHeader() + UI_GLOBALS.LINE_BREAK);
+        ioHandler.println(this.controller.logOutCurrentUser());
+        return this.controller.getNextView();
     }
 }

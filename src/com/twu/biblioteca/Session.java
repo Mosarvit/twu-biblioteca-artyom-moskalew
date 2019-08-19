@@ -28,4 +28,8 @@ public class Session {
         }
         return loggedInUser.getLibraryName().equals(admin.getLibraryName());
     }
+
+    public static void logOutCurrentUser() {
+        loggedInUser = null;
+    }
 }

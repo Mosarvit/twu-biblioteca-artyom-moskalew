@@ -31,4 +31,5 @@ public class UI_GLOBALS {
     public static final String BROWSE_VIEW_SORRY_LOG_IN_FIRST = "Sorry, you cannot check out this book. You need to log in first";
     public static final String REQUEST_NAVIGATION_BAR_SELECTION_MESSAGE = MAIN_MENU_VIEW_REQUEST_INPUT_MESSAGE;
     public static final String USER_LOG_OUT_VIEW_SUCCESSFULLY_LOGGED_OUT_MESSAGE = "You have been successfully logged out";
+    public static final String USER_LOG_OUT_HEADER = "Log Out";
 }
