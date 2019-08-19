@@ -6,7 +6,7 @@ public class QuitView extends View {
     private static final QuitView QUIT_VIEW___SINGLETON = new QuitView();
 
     private QuitView() {
-        this.viewName = "Quit Biblioteca";
+        this.viewName = UI_GLOBALS.NAVIGATION_BAR_LABELS_QUIT_BIBLIOTECA;
     }
 
     public static QuitView getInstance() {

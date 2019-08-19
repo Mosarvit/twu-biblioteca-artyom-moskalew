@@ -1,7 +1,6 @@
 package com.twu.biblioteca.controllers;
 
-import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.models.Model;
+import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.views.View;
 import com.twu.biblioteca.views.helpers.TablePrinter;
 import com.twu.biblioteca.views.parts.NavigationBar;
@@ -9,29 +8,29 @@ import com.twu.biblioteca.views.parts.NavigationBar;
 import java.util.ArrayList;
 
 public abstract class InteractiveViewController implements Controller {
-    protected BookAction bookAction;
+    protected MediaAction mediaAction;
     protected String onSuccessMessagePart;
     protected String thankYouMessage;
     protected String wrongNumberSelectedMessage;
     protected String requestInputMessage;
-    protected BookSelection bookSelection;
+    protected MediaSelection mediaSelection;
     protected String emptyListMessage;
     protected String viewTitle;
     protected View correspondingView;
     protected View nextView;
 
 
-    public String applyActionToBook(Model bookSelectedForCheckOut) {
-        this.bookAction.applyToBook(bookSelectedForCheckOut);
+    public String applyActionToBook(Media bookSelectedForCheckOut) {
+        this.mediaAction.applyToBook(bookSelectedForCheckOut);
         return "\"" + bookSelectedForCheckOut.getTitle() + "\" " + this.onSuccessMessagePart + ".";
     }
 
     public String processNumericalInput(String userSelectedOptionString) {
-        ArrayList<Model> selectedEntries = this.bookSelection.selectBooks();
+        ArrayList<Media> selectedEntries = this.mediaSelection.selectMedia();
         String response = "";
         int userSelectedNumber = Integer.parseInt(userSelectedOptionString);
         if (userSelectedNumber <= selectedEntries.size()) {
-            Model bookSelectedForCheckOut = selectedEntries.get(userSelectedNumber - 1);
+            Media bookSelectedForCheckOut = selectedEntries.get(userSelectedNumber - 1);
             response += applyActionToBook(bookSelectedForCheckOut) + "\n";
             response += this.thankYouMessage;
         } else {
@@ -90,7 +89,7 @@ public abstract class InteractiveViewController implements Controller {
     public String getBody() {
         String tableString = "";
 
-        ArrayList<Model> checkOutableBooks = bookSelection.selectBooks();
+        ArrayList<Media> checkOutableBooks = mediaSelection.selectMedia();
 
         if (checkOutableBooks.isEmpty()) {
             tableString += this.emptyListMessage + "\n";
@@ -102,11 +101,11 @@ public abstract class InteractiveViewController implements Controller {
     }
 
 
-    interface BookAction {
-        void applyToBook(Model model);
+    interface MediaAction {
+        void applyToBook(Media media);
     }
 
-    interface BookSelection {
-        ArrayList<Model> selectBooks();
+    interface MediaSelection {
+        ArrayList<Media> selectMedia();
     }
 }

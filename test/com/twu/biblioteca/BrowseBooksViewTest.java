@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.views.BrowseBooksView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.*;
 
 import java.io.ByteArrayInputStream;
@@ -59,7 +60,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [x].\n\n";
@@ -93,7 +94,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [1].\n" +
@@ -130,7 +131,7 @@ public class BrowseBooksViewTest {
                         "[2] | Walden | Henry David Thoreau | 1854\n" +
                         "[3] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to check out or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [4].\n" +

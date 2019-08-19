@@ -4,6 +4,7 @@ import com.twu.biblioteca.controllers.BrowseMoviesController;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.Movie;
 import com.twu.biblioteca.views.BrowseMoviesView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -37,7 +38,8 @@ public class BrowseMoviesControllerTest {
                 "[INDEX] | Title | Director | " + UI_GLOBALS.MEDIA_TABLE_HEAD_BOOK_RELEASE_YEAR + "\n" +
                         "[1] | Forrest Gump | Robert Zemeckis | 1994\n" +
                         "[2] | Matrix | Lana Wachowski, Lilly Wachowski | 1999\n" +
-                        "[3] | The Godfather | Francis Ford Coppola | 1972\n";
+                        "[3] | The Godfather | Francis Ford Coppola | 1972\n"
+                ;
         Assert.assertThat(actualOutput, is(expectedOutput));
     }
 }

@@ -1,14 +1,14 @@
 package com.twu.biblioteca.views.helpers;
 
-import com.twu.biblioteca.UI_GLOBALS;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.models.Model;
+import com.twu.biblioteca.models.Media;
 import com.twu.biblioteca.models.Movie;
 
 import java.util.ArrayList;
 
 public class TablePrinter {
-    public static String getTableAsString(ArrayList<Model> books) {
+    public static String getTableAsString(ArrayList<Media> books) {
         String tableString = "";
 
         if(books.get(0).getClass() == Book.class){
@@ -18,20 +18,20 @@ public class TablePrinter {
         }
 
         int indexCounter = 1;
-        for (Model model : books) {
+        for (Media media : books) {
             tableString += "[" + indexCounter + "]";
             tableString += " | ";
-            tableString += model.getTitle();
+            tableString += media.getTitle();
             tableString += " | ";
 
             if(books.get(0).getClass() == Book.class){
-                tableString += ((Book)model).getAuthor();
+                tableString += ((Book) media).getAuthor();
             }else if(books.get(0).getClass() == Movie.class){
-                tableString += ((Movie)model).getDirector();
+                tableString += ((Movie) media).getDirector();
             }
 
             tableString += " | ";
-            tableString += model.getYearReleased();
+            tableString += media.getYearReleased();
             tableString += "\n";
             indexCounter++;
         }

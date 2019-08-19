@@ -6,7 +6,7 @@ public class MainMenuView extends InteractiveView {
     private static final MainMenuView mainMenuView_singleton = new MainMenuView();
 
     private MainMenuView() {
-        this.viewName = "Main Menu";
+        this.viewName = UI_GLOBALS.NAVIGATION_BAR_LABELS_MAIN_MENU;
         this.controller = new MainMenuController(this);
     }
 

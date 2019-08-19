@@ -11,9 +11,10 @@ public class NavigationBar {
     private LinkedHashMap<String, View> menuOptionsHM = new LinkedHashMap<String, View>();
 
     private NavigationBar() {
-        this.menuOptionsHM.put("m", MainMenuView.getInstance());
-        this.menuOptionsHM.put("l", BrowseBooksView.getInstance());
-        this.menuOptionsHM.put("r", ReturnView.getInstance());
+        this.menuOptionsHM.put("h", MainMenuView.getInstance());
+        this.menuOptionsHM.put("b", BrowseBooksView.getInstance());
+        this.menuOptionsHM.put("rb", ReturnBooksView.getInstance());
+        this.menuOptionsHM.put("m", BrowseMoviesView.getInstance());
         this.menuOptionsHM.put("x", QuitView.getInstance());
     }
 
@@ -22,7 +23,6 @@ public class NavigationBar {
     }
 
     public static NavigationBar getInstance(){
-        NavigationBar nb = navigationBar_Singleton;
         return navigationBar_Singleton;
     }
 
@@ -30,13 +30,14 @@ public class NavigationBar {
         String navString = "";
         navString += "Navigation Bar:  ";
         for (Map.Entry<String, View> entry : this.menuOptionsHM.entrySet()) {
-            navString += "["+ entry.getKey() +"] "+ entry.getValue().getViewName() + "  ";
+            navString += "["+ entry.getKey() +"] "+ entry.getValue().getViewName() + " ";
         }
         navString += "\n";
         return navString;
     }
 
     public View processValidUserInput(String viewKey) {
+
         return this.menuOptionsHM.get(viewKey);
     }
 }

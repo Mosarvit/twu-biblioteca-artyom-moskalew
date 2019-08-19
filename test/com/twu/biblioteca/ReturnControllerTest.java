@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.controllers.ReturnController;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.Book;
-import com.twu.biblioteca.views.ReturnView;
+import com.twu.biblioteca.views.ReturnBooksView;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class ReturnControllerTest {
     public void applyActionToBookTest1() {
         // Arrange
         Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
-        ReturnController returnController = new ReturnController(ReturnView.getInstance());
+        ReturnController returnController = new ReturnController(ReturnBooksView.getInstance());
 
         // Act
         String response = returnController.applyActionToBook(bookAgileSoftwareDevelopment);
@@ -35,7 +35,7 @@ public class ReturnControllerTest {
         Book bookAgileSoftwareDevelopment = new Book("Agile Software Development", "Robert Cecil Martin", 2003);
         Database.add(bookAgileSoftwareDevelopment);
         bookAgileSoftwareDevelopment.checkOut();
-        ReturnController returnController = new ReturnController(ReturnView.getInstance());
+        ReturnController returnController = new ReturnController(ReturnBooksView.getInstance());
 
         // Act
         String response = returnController.processNumericalInput("1");

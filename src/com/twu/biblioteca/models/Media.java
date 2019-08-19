@@ -1,6 +1,6 @@
 package com.twu.biblioteca.models;
 
-public abstract class Model {
+public abstract class Media {
     protected boolean checkedOut = false;
     protected int releaseYear;
     protected String title;

@@ -4,74 +4,74 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Database {
-    private static final HashMap<String, ArrayList<Model>> tables = new HashMap<>();
+    private static final HashMap<String, ArrayList<Media>> tables = new HashMap<>();
 
-    public static void add(Model model) {
+    public static void add(Media media) {
 
         String tableName = "BookTable";
 
-        if (model.getClass() == Book.class){
+        if (media.getClass() == Book.class){
             tableName = "BookTable";
-        }else if(model.getClass() == Movie.class){
+        }else if(media.getClass() == Movie.class){
             tableName = "MovieTable";
         }
 
         if (!tables.containsKey(tableName)) {
-            tables.put(tableName, new ArrayList<Model>());
+            tables.put(tableName, new ArrayList<Media>());
         }
-        tables.get(tableName).add(model);
+        tables.get(tableName).add(media);
     }
 
     public static void clear() {
         tables.clear();
     }
 
-    public static ArrayList<Model> selectAllBooksWhereCheckedOutIsFalse() {
+    public static ArrayList<Media> selectAllBooksWhereCheckedOutIsFalse() {
         String tableName = "BookTable";
-        ArrayList<Model> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Model model : tables.get(tableName)) {
-                if (!model.isCheckedOut()) {
-                    allBooksWhereCheckedOutIsFalse.add(model);
+            for (Media media : tables.get(tableName)) {
+                if (!media.isCheckedOut()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
                 }
             }
         }
         return allBooksWhereCheckedOutIsFalse;
     }
 
-    public static ArrayList<Model> selectAllBooksWhereCheckedOutIsTrue() {
+    public static ArrayList<Media> selectAllBooksWhereCheckedOutIsTrue() {
         String tableName = "BookTable";
-        ArrayList<Model> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Model model : tables.get(tableName)) {
-                if (model.isCheckedOut()) {
-                    allBooksWhereCheckedOutIsFalse.add(model);
+            for (Media media : tables.get(tableName)) {
+                if (media.isCheckedOut()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
                 }
             }
         }
         return allBooksWhereCheckedOutIsFalse;
     }
 
-    public static ArrayList<Model> selectAllMoviesWhereCheckedOutIsFalse() {
+    public static ArrayList<Media> selectAllMoviesWhereCheckedOutIsFalse() {
         String tableName = "MovieTable";
-        ArrayList<Model> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Model model : tables.get(tableName)) {
-                if (!model.isCheckedOut()) {
-                    allBooksWhereCheckedOutIsFalse.add(model);
+            for (Media media : tables.get(tableName)) {
+                if (!media.isCheckedOut()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
                 }
             }
         }
         return allBooksWhereCheckedOutIsFalse;
     }
 
-    public static ArrayList<Model> selectAllMoviesWhereCheckedOutIsTrue() {
+    public static ArrayList<Media> selectAllMoviesWhereCheckedOutIsTrue() {
         String tableName = "MovieTable";
-        ArrayList<Model> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
+        ArrayList<Media> allBooksWhereCheckedOutIsFalse = new ArrayList<>();
         if (tables.containsKey(tableName)) {
-            for (Model model : tables.get(tableName)) {
-                if (model.isCheckedOut()) {
-                    allBooksWhereCheckedOutIsFalse.add(model);
+            for (Media media : tables.get(tableName)) {
+                if (media.isCheckedOut()) {
+                    allBooksWhereCheckedOutIsFalse.add(media);
                 }
             }
         }

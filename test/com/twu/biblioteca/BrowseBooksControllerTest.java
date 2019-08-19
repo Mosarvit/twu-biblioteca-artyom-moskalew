@@ -4,6 +4,7 @@ import com.twu.biblioteca.controllers.BrowseBooksController;
 import com.twu.biblioteca.models.Database;
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.views.BrowseBooksView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;

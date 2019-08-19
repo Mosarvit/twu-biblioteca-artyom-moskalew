@@ -1,6 +1,6 @@
 package com.twu.biblioteca.models;
 
-public class Book extends Model {
+public class Book extends Media {
     private String author;
     public Book(String title, String author, int yearReleased) {
         this.title = title;

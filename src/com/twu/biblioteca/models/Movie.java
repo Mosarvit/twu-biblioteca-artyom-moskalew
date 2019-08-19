@@ -1,6 +1,6 @@
 package com.twu.biblioteca.models;
 
-public class Movie extends Model{
+public class Movie extends Media {
     private String director;
     public Movie(String title, String director, int yearReleased) {
         this.title = title;

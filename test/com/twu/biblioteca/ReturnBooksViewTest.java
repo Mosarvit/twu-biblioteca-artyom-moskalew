@@ -2,7 +2,8 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.models.Book;
 import com.twu.biblioteca.models.Database;
-import com.twu.biblioteca.views.ReturnView;
+import com.twu.biblioteca.views.ReturnBooksView;
+import com.twu.biblioteca.views.UI_GLOBALS;
 import org.junit.*;
 
 import java.io.ByteArrayInputStream;
@@ -13,7 +14,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 
 
-public class ReturnViewTest {
+public class ReturnBooksViewTest {
 
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -37,7 +38,7 @@ public class ReturnViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("x\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        ReturnView returnView = ReturnView.getInstance();
+        ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -51,7 +52,7 @@ public class ReturnViewTest {
         bookAgileSoftwareDevelopment.checkOut();
 
 //         Act
-        returnView.enter(iOHandler);
+        returnBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -61,7 +62,7 @@ public class ReturnViewTest {
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [x].\n\n";
@@ -73,7 +74,7 @@ public class ReturnViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("2\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        ReturnView returnView = ReturnView.getInstance();
+        ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -87,7 +88,7 @@ public class ReturnViewTest {
         bookAgileSoftwareDevelopment.checkOut();
 
 //         Act
-        returnView.enter(iOHandler);
+        returnBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -97,7 +98,7 @@ public class ReturnViewTest {
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [2].\n" +
@@ -112,7 +113,7 @@ public class ReturnViewTest {
 //         Arrange
         System.setIn(new ByteArrayInputStream("3\nx\n".getBytes()));
         IOHandler iOHandler = new IOHandler();
-        ReturnView returnView = ReturnView.getInstance();
+        ReturnBooksView returnBooksView = ReturnBooksView.getInstance();
 
         Book bookAnnaKarenina = new Book("Anna Karenina", "Leo Tolstoy", 1877);
         Book bookWalden = new Book("Walden", "Henry David Thoreau", 1854);
@@ -126,7 +127,7 @@ public class ReturnViewTest {
         bookAgileSoftwareDevelopment.checkOut();
 
 //         Act
-        returnView.enter(iOHandler);
+        returnBooksView.enter(iOHandler);
 
 //        Assert
         String actualOutput = outContent.toString();
@@ -136,7 +137,7 @@ public class ReturnViewTest {
                         "[1] | Walden | Henry David Thoreau | 1854\n" +
                         "[2] | Agile Software Development | Robert Cecil Martin | 2003\n" +
                         "\n" +
-                        "Navigation Bar:  [m] Main Menu  [l] List of books  [r] Return books  [x] Quit Biblioteca  \n" +
+                        UI_TEST_GLOBALS.NAVIGATION_BAR_STRING +
                         "\n" +
                         "Please type the number of the book you want to return or type an option from the Navigation Bar, then hit Enter:\n" +
                         "You selected option [3].\n" +
